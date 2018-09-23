@@ -1,0 +1,23 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Modern Day Fraud}{2}
+\contentsline {subsection}{\numberline {1.1.1}Credit Card Fraud}{3}
+\contentsline {subsection}{\numberline {1.1.2}Online Payments Fraud}{4}
+\contentsline {section}{\numberline {1.2}Current Research}{5}
+\contentsline {section}{\numberline {1.3}The Human Element}{6}
+\contentsline {chapter}{\numberline {2} Fraud in Context}{7}
+\contentsline {section}{\numberline {2.1} Interviews from Professionals}{8}
+\contentsline {section}{\numberline {2.2} Research Versus Reality}{9}
+\contentsline {chapter}{\numberline {3}Implementing a Fraud Detection System}{10}
+\contentsline {section}{\numberline {3.1}Model}{11}
+\contentsline {section}{\numberline {3.2}Experiment}{12}
+\contentsline {subsection}{\numberline {3.2.1}Hypothesis}{13}
+\contentsline {subsection}{\numberline {3.2.2}Data}{14}
+\contentsline {subsection}{\numberline {3.2.3}Methods}{15}
+\contentsline {subsection}{\numberline {3.2.4}Results}{16}
+\contentsline {subsection}{\numberline {3.2.5}Discussion}{17}
+\contentsline {chapter}{\numberline {4}Further Applications}{18}
+\contentsline {section}{\numberline {4.1}Anomoly Detection}{19}
+\contentsline {subsection}{\numberline {4.1.1}Cell Phone Fraud}{20}
+\contentsline {subsection}{\numberline {4.1.2}Biometric Fraud}{21}
+\contentsline {subsection}{\numberline {4.1.3}Bioinformatics}{22}
+\contentsline {chapter}{\numberline {5}Conclusions}{23}
