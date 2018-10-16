@@ -1,5 +1,24 @@
 \begin{thebibliography}{1}
 
+\bibitem{legaldict}
+{Fraud - Definition, Types, Examples and Processes}.
+
+\bibitem{Chan}
+Philip~K Chan and Salvatore~J Stolfo.
+\newblock {Toward Scalable Learning with Non-uniform Class and Cost
+  Distributions: A Case Study in Credit Card Fraud Detection}.
+\newblock Technical report.
+
+\bibitem{Fawcett1996}
+Tom Fawcett and Foster Provost.
+\newblock {Combining Data Mining and Machine Learning for Effective User
+  Profiling}.
+\newblock Technical report, 1996.
+
+\bibitem{paysim}
+Paysim.
+\newblock {Synthetic Financial Datasets For Fraud Detection | Kaggle}.
+
 \bibitem{Wang2018}
 Mac Wang.
 \newblock {How to protect your business from online payments fraud - CSO | The
