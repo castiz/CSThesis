@@ -19,6 +19,20 @@ Tom Fawcett and Foster Provost.
 Paysim.
 \newblock {Synthetic Financial Datasets For Fraud Detection | Kaggle}.
 
+\bibitem{Perols2011}
+Johan Perols.
+\newblock {Financial Statement Fraud Detection: An Analysis of Statistical and
+  Machine Learning Algorithms}.
+\newblock {\em AUDITING: A Journal of Practice {\&} Theory}, 30(2):19--50, may
+  2011.
+
+\bibitem{Stolfo1997}
+Salvatore~J Stolfo, David~W Fan, Wenke Lee, Andreas~L Prodromidis, and Philip~K
+  Chan.
+\newblock {Credit Card Fraud Detection Using Meta-Learning: Issues and Initial
+  Results 1}.
+\newblock Technical report, 1997.
+
 \bibitem{Wang2018}
 Mac Wang.
 \newblock {How to protect your business from online payments fraud - CSO | The

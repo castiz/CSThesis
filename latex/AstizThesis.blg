@@ -7,45 +7,46 @@ Warning--to sort, need author or key in legaldict
 Warning--empty institution in Chan
 Warning--empty year in Chan
 Warning--empty institution in Fawcett1996
-You've used 5 entries,
+Warning--empty institution in Stolfo1997
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            517 strings with 4565 characters,
-and the built_in function-call counts, 1025 in all, are:
-= -- 90
-> -- 41
+            531 strings with 4981 characters,
+and the built_in function-call counts, 1632 in all, are:
+= -- 149
+> -- 76
 < -- 0
-+ -- 17
-- -- 12
-* -- 46
-:= -- 175
-add.period$ -- 11
-call.type$ -- 5
-change.case$ -- 23
++ -- 31
+- -- 24
+* -- 94
+:= -- 285
+add.period$ -- 17
+call.type$ -- 7
+change.case$ -- 36
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 37
-empty$ -- 98
-format.name$ -- 12
-if$ -- 212
+cite$ -- 12
+duplicate$ -- 56
+empty$ -- 138
+format.name$ -- 24
+if$ -- 329
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 0
-newline$ -- 24
-num.names$ -- 8
-pop$ -- 37
+int.to.str$ -- 7
+missing$ -- 1
+newline$ -- 34
+num.names$ -- 12
+pop$ -- 47
 preamble$ -- 1
-purify$ -- 16
+purify$ -- 26
 quote$ -- 0
-skip$ -- 39
+skip$ -- 51
 stack$ -- 0
-substring$ -- 25
-swap$ -- 3
+substring$ -- 54
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
-warning$ -- 4
-while$ -- 8
-width$ -- 6
-write$ -- 41
-(There were 4 warnings)
+type$ -- 28
+warning$ -- 5
+while$ -- 14
+width$ -- 8
+write$ -- 62
+(There were 5 warnings)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  16 OCT 2018 10:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  21 OCT 2018 22:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -330,43 +330,43 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 60.
 [3
 
-] [4] [5] [6]
+] [4] [5] [6] [7] [8]
 Chapter 3.
-[7
+[9
 
 ]
 Chapter 4.
-[8
+[10
 
-] [9] [10]
+] [11] [12]
 Chapter 5.
-[11
+[13
 
 ]
 Chapter 6.
-(./AstizThesis.bbl [12
+(./AstizThesis.bbl [14
 
-]) [13
+]) [15
 
 ] (./AstizThesis.aux) ) 
 Here is how much of TeX's memory you used:
- 3204 strings out of 492995
- 43553 string characters out of 6132704
- 127249 words of memory out of 5000000
- 6692 multiletter control sequences out of 15000+600000
+ 3206 strings out of 492995
+ 43577 string characters out of 6132704
+ 127258 words of memory out of 5000000
+ 6694 multiletter control sequences out of 15000+600000
  14989 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,10n,53p,1378b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,10n,53p,1423b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base
 /8r.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
 12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
 r/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on AstizThesis.pdf (19 pages, 78613 bytes).
+Output written on AstizThesis.pdf (21 pages, 85460 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
