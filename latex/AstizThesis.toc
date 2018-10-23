@@ -1,24 +1,24 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {chapter}{\numberline {2}Modern Day Fraud}{3}
 \contentsline {section}{\numberline {2.1}Credit Card Fraud Research}{4}
-\contentsline {subsection}{\numberline {2.1.1}Financial Fraud Research}{5}
-\contentsline {section}{\numberline {2.2}Other Fraud Research}{7}
-\contentsline {section}{\numberline {2.3}The Human Element}{8}
-\contentsline {chapter}{\numberline {3} Fraud in Context}{9}
-\contentsline {section}{\numberline {3.1} Interviews from Professionals}{9}
-\contentsline {section}{\numberline {3.2} Research Versus Reality}{9}
-\contentsline {chapter}{\numberline {4}Implementing a Fraud Detection System}{10}
-\contentsline {section}{\numberline {4.1}Model}{10}
-\contentsline {section}{\numberline {4.2}Experiment}{10}
-\contentsline {subsection}{\numberline {4.2.1}Hypothesis}{10}
-\contentsline {subsection}{\numberline {4.2.2}Data}{10}
-\contentsline {subsection}{\numberline {4.2.3}Methods}{12}
-\contentsline {subsection}{\numberline {4.2.4}Results}{12}
-\contentsline {subsection}{\numberline {4.2.5}Discussion}{12}
-\contentsline {chapter}{\numberline {5}Further Applications}{13}
-\contentsline {section}{\numberline {5.1}Anomoly Detection}{13}
-\contentsline {subsection}{\numberline {5.1.1}Cell Phone Fraud}{13}
-\contentsline {subsection}{\numberline {5.1.2}Biometric Fraud}{13}
-\contentsline {subsection}{\numberline {5.1.3}Bioinformatics}{13}
-\contentsline {chapter}{\numberline {6}Conclusions}{14}
-\contentsline {chapter}{Bibliography}{15}
+\contentsline {subsection}{\numberline {2.1.1}Financial Fraud Research}{8}
+\contentsline {section}{\numberline {2.2}Other Fraud Research}{10}
+\contentsline {section}{\numberline {2.3}The Human Element}{13}
+\contentsline {chapter}{\numberline {3} Fraud in Context}{14}
+\contentsline {section}{\numberline {3.1} Interviews from Professionals}{14}
+\contentsline {section}{\numberline {3.2} Research Versus Reality}{14}
+\contentsline {chapter}{\numberline {4}Implementing a Fraud Detection System}{15}
+\contentsline {section}{\numberline {4.1}Model}{15}
+\contentsline {section}{\numberline {4.2}Experiment}{15}
+\contentsline {subsection}{\numberline {4.2.1}Hypothesis}{15}
+\contentsline {subsection}{\numberline {4.2.2}Data}{15}
+\contentsline {subsection}{\numberline {4.2.3}Methods}{17}
+\contentsline {subsection}{\numberline {4.2.4}Results}{17}
+\contentsline {subsection}{\numberline {4.2.5}Discussion}{17}
+\contentsline {chapter}{\numberline {5}Further Applications}{18}
+\contentsline {section}{\numberline {5.1}Anomoly Detection}{18}
+\contentsline {subsection}{\numberline {5.1.1}Cell Phone Fraud}{18}
+\contentsline {subsection}{\numberline {5.1.2}Biometric Fraud}{18}
+\contentsline {subsection}{\numberline {5.1.3}Bioinformatics}{18}
+\contentsline {chapter}{\numberline {6}Conclusions}{19}
+\contentsline {chapter}{Bibliography}{20}

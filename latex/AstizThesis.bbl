@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{legaldict}
 {Fraud - Definition, Types, Examples and Processes}.
@@ -33,9 +33,31 @@ Salvatore~J Stolfo, David~W Fan, Wenke Lee, Andreas~L Prodromidis, and Philip~K
   Results 1}.
 \newblock Technical report, 1997.
 
+\bibitem{Tian}
+Tian Tian, Jun Zhu, Fen Xia, Xin Zhuang, and Tong Zhang.
+\newblock {Crowd Fraud Detection in Internet Advertising}.
+
 \bibitem{Wang2018}
 Mac Wang.
 \newblock {How to protect your business from online payments fraud - CSO | The
   Resource for Data Security Executives}, 2018.
+
+\bibitem{Wedge}
+Roy Wedge, James~Max Kanter, Kalyan Veeramachaneni, Santiago~Moral Rubio,
+  Sergio {Iglesias Perez}, Banco Bilbao, Vizcaya Argentaria, and Spain Madrid.
+\newblock {Solving the "false positives" problem in fraud prediction Automated
+  Data Science at an Industrial Scale}.
+\newblock Technical report.
+
+\bibitem{Zanin2018}
+Massimiliano Zanin, Miguel Romance, Santiago Moral, and Regino Criado.
+\newblock {Credit Card Fraud Detection through Parenclitic Network Analysis}.
+\newblock {\em Complexity}, 2018:1--9, may 2018.
+
+\bibitem{Zhu2015}
+Hengshu Zhu, Hui Xiong, Yong Ge, and Enhong Chen.
+\newblock {Discovery of Ranking Fraud for Mobile Apps}.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  27(1):74--87, jan 2015.
 
 \end{thebibliography}
