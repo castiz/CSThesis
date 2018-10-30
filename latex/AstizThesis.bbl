@@ -3,6 +3,10 @@
 \bibitem{legaldict}
 {Fraud - Definition, Types, Examples and Processes}.
 
+\bibitem{Brownlee}
+Jason Brownlee.
+\newblock {Support Vector Machines for Machine Learning}.
+
 \bibitem{Chan}
 Philip~K Chan and Salvatore~J Stolfo.
 \newblock {Toward Scalable Learning with Non-uniform Class and Cost
@@ -14,6 +18,10 @@ Tom Fawcett and Foster Provost.
 \newblock {Combining Data Mining and Machine Learning for Effective User
   Profiling}.
 \newblock Technical report, 1996.
+
+\bibitem{Gupta}
+Prashant Gupta.
+\newblock {Decision Trees in Machine Learning – Towards Data Science}.
 
 \bibitem{paysim}
 Paysim.
@@ -32,6 +40,14 @@ Salvatore~J Stolfo, David~W Fan, Wenke Lee, Andreas~L Prodromidis, and Philip~K
 \newblock {Credit Card Fraud Detection Using Meta-Learning: Issues and Initial
   Results 1}.
 \newblock Technical report, 1997.
+
+\bibitem{Suryansh}
+S.~Suryansh.
+\newblock {Neural Networks: All YOU Need to Know – Towards Data Science}.
+
+\bibitem{Swaminathan}
+Saishruthi Swaminathan.
+\newblock {Logistic Regression — Detailed Overview – Towards Data Science}.
 
 \bibitem{Tian}
 Tian Tian, Jun Zhu, Fen Xia, Xin Zhuang, and Tong Zhang.

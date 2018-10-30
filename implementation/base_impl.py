@@ -8,7 +8,6 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import svm
 import numpy as np
-#import matplotlib.pyplot as plt
 import csv
 import pandas as pd
 
@@ -26,13 +25,13 @@ def logisticRegression(train_data, test_data, train_lbl, test_lbl):
 
     precision, recall, F1 = precision_and_recall(test_lbl['isFraud'].tolist(), predictions.tolist())
 
-    print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1))
+    print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1) + "\n")
 
     return accuracy
 
 def neural_network(train_data, test_data, train_lbl, test_lbl):
     """implementation of neural network with scikit learn"""
-    clf = MLPClassifier(solver='lbfgs', alpha=.01, hidden_layer_sizes=(5, 2), batch_size=100, random_state=1)
+    clf = MLPClassifier(solver='sgd', activation='relu', alpha=.01, hidden_layer_sizes=(5, 2), batch_size=100, random_state=1)
     clf.fit(train_data, train_lbl.values.ravel())
     predictions = clf.predict(test_data)
     accuracy = clf.score(test_data, test_lbl)
@@ -40,7 +39,7 @@ def neural_network(train_data, test_data, train_lbl, test_lbl):
 
     precision, recall, F1 = precision_and_recall(test_lbl['isFraud'].tolist(), predictions.tolist())
 
-    print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1))
+    print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1) + "\n")
 
     return accuracy
 
@@ -54,24 +53,24 @@ def decision_tree(train_data, test_data, train_lbl, test_lbl):
 
     precision, recall, F1 = precision_and_recall(test_lbl['isFraud'].tolist(), predictions.tolist())
 
-    print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1))
+    print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1) + "\n")
 
     return accuracy
 
-    
+
 def support_vector_machine(train_data, test_data, train_lbl, test_lbl):
     """implementation of support vector machine with scikit learn"""
     clf = svm.SVC()
     clf.fit(train_data, train_lbl.values.ravel())
     predictions = clf.predict(test_data)
     accuracy = clf.score(test_data, test_lbl)
-    print("Decision Tree Accuracy: \n" + str(accuracy))
+    print("SVM: \n" + str(accuracy))
 
     precision, recall, F1 = precision_and_recall(test_lbl['isFraud'].tolist(), predictions.tolist())
 
-    print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1))
+    print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1) + "\n")
 
-    return accuracy   
+    return accuracy
 
 
 def precision_and_recall(test_lbl, predictions):
@@ -80,7 +79,7 @@ def precision_and_recall(test_lbl, predictions):
     # Precision: A measure of a classifiers exactness.
     # Recall: A measure of a classifiers completeness
     # F1 Score (or F-score): A weighted average of precision and recall.
-    
+
     tp = 0
     fp = 0
     fn = 0
@@ -98,7 +97,7 @@ def precision_and_recall(test_lbl, predictions):
                 fn += 1
             else:
                 continue
-    
+
     if (tp != 0):
         precision = tp / (tp + fp)
         recall = tp / (tp + fn)
@@ -110,11 +109,11 @@ def precision_and_recall(test_lbl, predictions):
 
 
 def descriptive_stat(df):
-    """This function prints out information about the dataset; df = data frame"""    
+    """This function prints out information about the dataset; df = data frame"""
     print(df)
     ##proportion of fraud: 0.001290820448
     print(df.groupby('isFraud').count())
-    
+
     print(df.describe())
     print(df.groupby("type").describe())
     print(df.groupby("isFraud").describe())
@@ -126,22 +125,38 @@ def main():
     df['type'] = df['type'].astype('category')
     cat_columns = df.select_dtypes(['category']).columns
     df[cat_columns] = df[cat_columns].apply(lambda x: x.cat.codes)
-    
-    data = df[['type','amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest', 'newbalanceDest']]
-    labels = df[['isFraud']]
 
-    # descriptive_stat(df)
+    ## Uncomment to print out summary stats
+    descriptive_stat(df)
 
 
-    train_data, test_data, train_lbl, test_lbl = train_test_split(data, labels, test_size=1/7.0, random_state=0)
+    ## clean data
 
-    # runs experiments
-    
-    #logisticRegression(train_data, test_data, train_lbl, test_lbl)
-    #neural_network(train_data, test_data, train_lbl, test_lbl)
-    #decision_tree(train_data, test_data, train_lbl, test_lbl)
+    mask = df['isFraud'] > 0
+    data1 = df[mask] #fraud data
+    data0 = df[~mask] #non-fraud data
+
+    n_fraud = data1.shape[0]
+
+    split = data0.sample(n=n_fraud)
+
+    frames = [data1, split]
+
+    data = pd.concat(frames)
+
+    cleaned_data = data[['type','amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest', 'newbalanceDest']]
+    labels = data[['isFraud']]
+
+
+    train_data, test_data, train_lbl, test_lbl = train_test_split(cleaned_data, labels, test_size=1/7.0, random_state=0)
+
+    ## runs experiments
+
+    logisticRegression(train_data, test_data, train_lbl, test_lbl)
+    neural_network(train_data, test_data, train_lbl, test_lbl)
+    decision_tree(train_data, test_data, train_lbl, test_lbl)
     support_vector_machine(train_data, test_data, train_lbl, test_lbl)
-    
+
 main()
 
 
@@ -150,4 +165,3 @@ main()
 # possibly do feature engineering
 # recursive neural networks
 # read paysim paper and try to create more data
-

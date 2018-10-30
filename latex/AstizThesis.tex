@@ -139,7 +139,6 @@ This section will be about what professionals are doing in the fraud field.
 
 This section I will compare whatever I find out from professionals to the most modern research on this topic. I assume research will be slightly behind what these professionals are dealing with and how they are solving these problems.
 
-%(As promised in Chapter~\ref{sec:intro}, here it gets interesting.)
 
 \pagebreak
 \chapter{Implementing a Fraud Detection System}
@@ -147,20 +146,32 @@ This section I will compare whatever I find out from professionals to the most m
 
 To understand further the complexity of creating a highly accurate fraud detection system, I implement my own system based on past research discussed in Chapter~\ref{sec:background}. I construct a series of machine learning models, and compare the results based on different proportions of fraud to non-fraud data. All experimentation is done open source tools built for python, such as Scikit-learn and Numpy. I will discuss the model and the experiment in depth in the sections below. The overall implementation is broken down into subsections under Experiment: Hypothesis, Data, Methods, Results, and Discussion. 
 
-\section{Model}
+\section{Model} %% Add in any extra models that I add after 10/29
 
-This section is where I will talk about the overall system I am planning on implementing.
+For this project, I will be implementing several different machine learning models. I will be following 2011 Perols and will be comparing the performance of several popular classification models. To start, I will be implementing logistic regression.
 
-\section{Experiment}
+Logistic Regression is a way to estimate the best fit line through a set of points. The best fit logistic line is the line that minimizes the squared error of each point in relation to the estimation on the line. This algorithm is used to create a relationship between points, and to analyze the relationship between points \cite{Swaminathan}. As more elements are added to the estimation, the logistic regression increases in complexity. It is a particularly good method for classifying a binary variable because it calculates the probability that something is equal to 1 based on the given inputs. This is different than linear regression, where the best fit line is estimated in a straight line instead of a logistic.
+
+% maybe add a figure for a logistic regression?
+
+Artificial neural networks leverage logistic regression to create more in depth decisions. Neural networks are created by combining multiple nodes in different layers to create a network \cite{Suryansh}. Here, nodes represent logistic regression, as they take in inputs, estimate an answer, and put out an output. The general structure of a neural network is to have an input layer, one or more hidden layers which can be of any size. Information is propagated forward through the network, and then back propagated again to adjust the parameter estimates of each node. Through this forward and backward process, the system eventually reaches a minimum, where the estimates minimize cost. Once the network weights have been estimated, any new input can be sent through the network, and an estimate will be output. This system is extremely powerful, and can be tuned significantly based on learning rate, hidden layer numbers, activation functions and other features of the network. 
+
+Decision trees are somewhat similar to neural networks, but instead of traversing a network, decisions are made through branching at features. Each parent node represents a decision or feature and the children nodes represent the outcomes of said feature. The goal is to minimize the cost as you traverse the tree, and reach a leaf node. Decision trees can grow arbitrarily large, and sometimes require pruning to avoid a very long prediction process. In addition, decision trees can be combined to create decision forests, further enlarging the architecture and complexity of the learning model \cite{Gupta}. Like neural networks, there are also many parameters to tune, and architecture decisions to make such as maximum depth and minimum number of training inputs.
+
+The last classification method I will be discussing is support vector machines or SVMs. SVMs classify data into categories by finding the best way to divide the data \cite{Brownlee}. This is particularly simple with a binary example like fraud detection. Here, we use kernels to calculate the plane or division that best splits the data with the lowest error rate. Like neural networks, to find the lowest cost split between the data, we implement stochastic gradient descent to find the minimum cost points. Once this division is created, predictions are made based on the location of your point of interest in regard to the line dividing the data. 
+
+\section{Experiments}
+
+I will be experimenting with the models listed above to create the best classifying algorithm possible. The experiments will be two fold. I will be experimenting with the distribution of the data and with the parameters and hyper-parameters of the data. In Perols' paper, he finds the best results when looking at an equal split of fraudulent and non-fraudulent transactions \cite{Perols2011}. I would like to replicate his study by altering the proportion of fraud to non-fraud, and compare results. I will also be experimenting with the structure of the models themselves. As discussed above, each model has several many elements that can be tuned to find the best results. Neural networks in particular can take many forms, and require certain levels of trial and error to find the best results. Through these two axis, I will compare the performance of each model both to other models in this thesis and performance in Perols' paper. 
+
 
 \subsection{Hypothesis}
+
+Based on Perols' paper, I hypothesize that the best results will come with more equally distributed data. I think that neural networks will perform best because they are able to capture many nuances of the data, and may perform better than the other models I have selected. However, given enough data and the correct tuning, these models should theoretically approach the same accuracy levels. 
 
 \subsection{Data}
 
 The data used from this project comes from a public source on Kaggle.com. I used the ``Synthetic Financial Datasets for Fraud Detection" which was generated by the PaySim mobile money simulator \cite{paysim}. This dataset comes from the paper ``PaySim: A financial mobile money simulator for fraud detection" and is scaled down to a quarter of the original dataset. The dataset includes information about type of the transaction, amount, the customer that started the transaction, the initial balance of the sender, the balance after the transaction of the sender, whether its fraud, and other variables. The summary statistics are shown in Table ~\ref{sec:sumstats}. 
-
-% TODO: make summary statistic table, at least with the fraud/nonfraud distributions and attributes
-
 
 
 \begin{table}[htbp]\centering
@@ -230,20 +241,18 @@ Count = 532,909				&		&		&		\\
 \pagebreak
 
 
-
-
 \subsection{Methods}
 
-LOTS of Machine Learning incorporated into bigger fraud detection and rule based learning systems! Overall system will be discussed in Model section.
+In order to implement my models, I will be leveraging the python package Sci-kit learn. Sci-kit learn has readily available implementations of major classifiers that I am interested in testing, as well as the infrastructure for predicting and analyzing the results of the models. I use the python package Pandas to read in and manipulate my data in a data-frame format. After reading in my data, I clean the data by selecting the fields I am interested in, and converting them to a usable format. For experiments where I am changing the distribution of fraud to non-fraud transactions, I extract the two transaction types from the total dataset. I then randomly sample a portion of the non-fraudulent transactions based on that experiment, and recombine that dataset with the entirety of the fraudulent dataset. This ensures that there is no selection bias in my results. 
 
 \subsection{Results}
 
-This section will be full of tables and figures. There will probably also be an appendix with the entire set of experiments run. The most interesting or a subset of the experimental runs will be in a table in this section.
+This section will be full of tables and figures. There will probably also be an appendix with the entire set of experiments run. The base results are currently showed in Table ~\ref{sec:results}.
 
 \begin{table}[htbp]\centering
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 \caption{Results \label{tab1}}
-\label{sec:sumstats}
+\label{sec:results}
 %\vspace{-18 pt}
 % %%%%%%%%%
 \scalebox{0.8} {
@@ -269,6 +278,14 @@ Decision Tree	            &	0.9997		&	0.8947	&	0.909	&	0.9017	\\
 \subsection{Discussion}
 
 This section will compare my hypothesis to the results, as well as my results to the model I'm basing it off of. I also plan on adding any notes I learn along the way of this implementation.
+
+\subsubsection{Limitations}
+
+% add sources to the information in this paragraph
+
+This project was limited by the dataset I had access to. In the real world, a transaction would include much more information that is not available with the fields of Paysim. Banks and credit card companies for example have the ability to see exactly where a transaction took place. Some banks pull information from their own banking app on a user's phone and compare the location of the user's phone to the location of the past transaction. With credit card information, companies can detect fraud based on if transactions are occurring in two places very far away from each other. Since I do not have any sort of location information, I cannot leverage this type of rule based fraud detection. In addition, I do not have access to the name of the business a transaction is taking place at. By building out a user profile that includes frequent locations and businesses the user goes to, a detection system can detect if a person is shopping at a store that is out of the norm and calculate the likelihood that this is fraud. 
+
+
 \pagebreak
 \chapter{Further Applications}
 \label{sec:future}

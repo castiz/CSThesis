@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  29 OCT 2018 00:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  30 OCT 2018 00:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -203,9 +203,6 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 
 LaTeX Warning: Label `tab1' multiply defined.
 
-
-LaTeX Warning: Label `sec:sumstats' multiply defined.
-
 )
 \openout1 = `AstizThesis.aux'.
 
@@ -344,26 +341,39 @@ Chapter 3.
 Chapter 4.
 [15
 
-] [16] [17]
+] [16] [17] [18] [19] [20]
 Chapter 5.
-[18
+[21
 
 ]
 Chapter 6.
-(./AstizThesis.bbl [19
+(./AstizThesis.bbl [22
 
-]) [20
+]
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ” in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+ [23
 
-] (./AstizThesis.aux)
+]) [24] (./AstizThesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3211 strings out of 492995
- 43622 string characters out of 6132704
- 120321 words of memory out of 5000000
- 6699 multiletter control sequences out of 15000+600000
+ 3216 strings out of 492995
+ 43675 string characters out of 6132704
+ 118348 words of memory out of 5000000
+ 6704 multiletter control sequences out of 15000+600000
  14989 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,10n,53p,1423b,244s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -371,10 +381,10 @@ Here is how much of TeX's memory you used:
 exlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/201
 7/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-di
 st/fonts/type1/urw/times/utmri8a.pfb>
-Output written on AstizThesis.pdf (26 pages, 82822 bytes).
+Output written on AstizThesis.pdf (30 pages, 88476 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
