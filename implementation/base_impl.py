@@ -7,18 +7,15 @@ from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import svm
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import DotProduct, WhiteKernel
-from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C
-from sklearn.gaussian_process import GaussianProcessClassifier
+from sklearn.metrics import accuracy_score
 import numpy as np
 import csv
 import pandas as pd
 import os
 import glob
 from time import time
+import math
 
-# groupby
 
 def add_features(df):
     """
@@ -38,27 +35,27 @@ def add_features(df):
 
     # add time between user's last transaction and now
 
-    for i in users:
-        last_trans = -1
-        for index, row in df.iterrows():
-            if row['nameOrig'] == i:
-                if last_trans != -1:
-                    row['time_btwn_trans'] = row['step'] - last_trans
-                else:
-                    row['time_btwn_trans'] = 0
-                last_trans = row['step']
-
-
-    # add dummy for if user has interacted with nameDest before
-
-    for i in users:
-        past_interactions = []
-        for index, row in df.iterrows():
-            if row['nameOrig'] == i:
-                if row['nameDest'] in past_interactions:
-                    row['interacted_before'] = 1
-                else:
-                    past_interactions.append(row['nameDest'])
+    # for i in users:
+    #     last_trans = -1
+    #     for index, row in df.iterrows():
+    #         if row['nameOrig'] == i:
+    #             if last_trans != -1:
+    #                 row['time_btwn_trans'] = row['step'] - last_trans
+    #             else:
+    #                 row['time_btwn_trans'] = 0
+    #             last_trans = row['step']
+    #
+    #
+    # # add dummy for if user has interacted with nameDest before
+    #
+    # for i in users:
+    #     past_interactions = []
+    #     for index, row in df.iterrows():
+    #         if row['nameOrig'] == i:
+    #             if row['nameDest'] in past_interactions:
+    #                 row['interacted_before'] = 1
+    #             else:
+    #                 past_interactions.append(row['nameDest'])
 
     return df
 
@@ -82,26 +79,66 @@ def logisticRegression(train_data, test_data, train_lbl, test_lbl):
 
     return accuracy, precision, recall, F1
 
-def gaussian_process(train_data, test_data, train_lbl, test_lbl):
+
+# reference for Gaussian work: https://www.kaggle.com/peterkim95/multivariate-gaussian-anomaly-detection
+def selectThreshold(train_lbl, pval):
+
+    bestEpsilon = 0.0
+    bestF1 = 0.0
+
+    stepsize = (max(pval) - min(pval)) / 1000
+    for epsilon in np.arange(min(pval), max(pval), stepsize):
+        predictions = (pval < epsilon).astype(int)
+
+        _, _, F1 = precision_and_recall(train_lbl['isFraud'].tolist(), predictions.tolist())
+
+        if F1 > bestF1:
+            bestF1 = F1
+            bestEpsilon = epsilon
+
+    return bestEpsilon, bestF1
+
+def multivariateGaussian(X, mu, sigma):
+    m, n = X.shape
+    X = X.values - mu.values.reshape(1,n)
+    p = (1.0 / (math.pow((2 * math.pi), n / 2.0) * math.pow(np.linalg.det(sigma),0.5))) * np.exp(-0.5 * np.sum(X.dot(np.linalg.pinv(sigma)) * X, axis=1))
+
+    return p
+
+def estimateGaussian(X):
+    mu = X.mean()
+    m, n = X.shape
+    sigma = np.zeros((n,n))
+
+    for i in range(0,m):
+        sigma = sigma + (X.iloc[i] - mu).values.reshape(n,1).dot((X.iloc[i] - mu).values.reshape(1, n))
+
+    sigma = sigma * (1.0/m) # Use 1.0 instead of 1 to force float conversion
+
+    return mu, sigma
+
+def gaussian(train_data, test_data, train_lbl, test_lbl):
     """
-    implementation of a gaussian process regressor from sci-kit learn, which is what Andrew Ng suggests for anomaly detection
+    implementation of a gaussian distribution, which is what Andrew Ng suggests for anomaly detection
     """
-    # kernel = DotProduct() + WhiteKernel()
-    gp=GaussianProcessClassifier(kernel=1.0 * RBF(length_scale=1.0), optimizer=None).fit(train_data, train_lbl)
+    mu, sigma = estimateGaussian(train_data)
 
-    #gpr = GaussianProcessRegressor(kernel=kernel,random_state=0).fit(train_data, train_lbl)
-    accuracy = gpr.score(test_data, test_lbl)
+    ptrain = multivariateGaussian(train_data, mu, sigma)
 
-    # kernel = C(1.0, (1e-3, 1e3)) * RBF(10, (1e-2, 1e2))
-    # gp = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=9)
-    #gp.fit(train_data, train_lbl)
-    #y_pred, sigma = gp.predict(x, return_std=True)
+    epsilon, F1 = selectThreshold(train_lbl, ptrain)
 
-    #accuracy = gp.score(test_data, test_lbl)
+    print ("Found best epsilon = " + str(epsilon) + ", best F1 = " + str(F1))
 
-    print("Gaussian process Accuracy: \n" + str(accuracy))
+    ptest = multivariateGaussian(test_data, mu, sigma)
 
-    precision, recall, F1 = precision_and_recall(test_lbl['isFraud'].tolist(), predictions.tolist())
+    predictions = (ptest < epsilon).astype(int)
+    test_lbl = np.squeeze(test_lbl.values).astype(int)
+
+    accuracy = accuracy_score(test_lbl, predictions)
+
+    print("Gaussian Accuracy: \n" + str(accuracy))
+
+    precision, recall, F1 = precision_and_recall(test_lbl.tolist(), predictions.tolist())
 
     print("precision = " + str(precision)+ " recall = " + str(recall) + " F1 = " + str(F1) + "\n")
 
@@ -250,7 +287,7 @@ def experiments_nn(df):
     Read data, train neural network models and test models, save accuracy
     """
 
-    epoch_limit = 100
+    epoch_limit = 20
 
     models1 = [
         (256,64,2),
@@ -372,11 +409,11 @@ def experiments(df):
         line = '\t'.join(['logReg', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
         file.write(line + '\n')
 
-        #start_time = time()
-        #accuracy, precision, recall, f1 = gaussian_process(train_data, test_data, train_lbl, test_lbl)
-        #end_time = time()
-        #line = '\t'.join('gaussian', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) )
-        #file.write(line + '\n')
+        start_time = time()
+        accuracy, precision, recall, f1 = gaussian(x_train, x_test, y_train, y_test)
+        end_time = time()
+        line = '\t'.join('gaussian', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) )
+        file.write(line + '\n')
 
         start_time = time()
         accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
@@ -404,11 +441,11 @@ def experiments(df):
         line = '\t'.join(['logReg', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
         file.write(line + '\n')
 
-        #start_time = time()
-        #accuracy, precision, recall, f1 = gaussian_process(train_data, test_data, train_lbl, test_lbl)
-        #end_time = time()
-        #line = '\t'.join('gaussian', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) )
-        #file.write(line + '\n')
+        start_time = time()
+        accuracy, precision, recall, f1 = gaussian(train_data, test_data, train_lbl, test_lbl)
+        end_time = time()
+        line = '\t'.join('gaussian', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) )
+        file.write(line + '\n')
 
         start_time = time()
         accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
@@ -421,7 +458,6 @@ def experiments(df):
         end_time = time()
         line = '\t'.join(['svm', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
         file.write(line + '\n')
-
 
 
 
@@ -439,13 +475,13 @@ def main():
     #descriptive_stat(df)
 
 
-    #df2 = add_features(df)
-    #
-    #df2.to_csv('altered_credit_data.csv')
+    df2 = add_features(df)
+
+    df2.to_csv('altered_credit_data.csv')
 
 
     ## runs experiments
     #experiments_nn(df)
-    experiments(df)
+    #experiments(df)
 
 main()
