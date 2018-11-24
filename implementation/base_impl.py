@@ -15,6 +15,7 @@ import os
 import glob
 from time import time
 import math
+from tqdm import tqdm
 
 
 def add_features(df):
@@ -22,6 +23,9 @@ def add_features(df):
     Takes in a dataframe and creates some new features from current information
     """
     users = list(set(df['nameOrig'].tolist())) # gets unique users
+
+    print(len(users))
+
     # add user's average transaction size
     df['avg_transaction'] = 0
     df['time_btwn_trans'] = 0
@@ -29,33 +33,33 @@ def add_features(df):
 
     means = df.groupby(['nameOrig'])['amount'].mean()
 
-    for i in users:
+    for i in tqdm(users):
         df.loc[df.nameOrig == i, 'avg_transaction'] = means[i]
 
 
-    # add time between user's last transaction and now
+    #add time between user's last transaction and now
 
-    # for i in users:
-    #     last_trans = -1
-    #     for index, row in df.iterrows():
-    #         if row['nameOrig'] == i:
-    #             if last_trans != -1:
-    #                 row['time_btwn_trans'] = row['step'] - last_trans
-    #             else:
-    #                 row['time_btwn_trans'] = 0
-    #             last_trans = row['step']
-    #
-    #
-    # # add dummy for if user has interacted with nameDest before
-    #
-    # for i in users:
-    #     past_interactions = []
-    #     for index, row in df.iterrows():
-    #         if row['nameOrig'] == i:
-    #             if row['nameDest'] in past_interactions:
-    #                 row['interacted_before'] = 1
-    #             else:
-    #                 past_interactions.append(row['nameDest'])
+    for i in users:
+        last_trans = -1
+        for index, row in df.iterrows():
+            if row['nameOrig'] == i:
+                if last_trans != -1:
+                    row['time_btwn_trans'] = row['step'] - last_trans
+                else:
+                    row['time_btwn_trans'] = 0
+                last_trans = row['step']
+
+
+    # add dummy for if user has interacted with nameDest before
+
+    for i in users:
+        past_interactions = []
+        for index, row in df.iterrows():
+            if row['nameOrig'] == i:
+                if row['nameDest'] in past_interactions:
+                    row['interacted_before'] = 1
+                else:
+                    past_interactions.append(row['nameDest'])
 
     return df
 
@@ -259,11 +263,6 @@ def data_split(df, fraud_prop):
 
     split = None
 
-    # if fraud_prop == .5:
-    #     split = data0.sample(n=n_fraud)
-    #
-    # if fraud_prop == .25:
-    #     split = data0.sample(n=n_fraud*3)
 
     if fraud_prop == 0:
         split = data0
@@ -304,11 +303,11 @@ def experiments_nn(df):
         (512,256,256,128,2),
         (1024,256,128,128,2)]
 
-    file = open('results_nn.txt', 'w')
+    file = open('results_nn2.txt', 'w')
     file.write('fraud_prop\tnormalized\tx\ty\tz\ta\ttime\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\n')
 
 
-    for i in [.5, .25]:#range(0, .5, .1):
+    for i in tqdm(range(0, 5, 1)):
         x_train, x_test, y_train, y_test = data_split(df, i)
 
         #non normalized
@@ -317,7 +316,7 @@ def experiments_nn(df):
             x,y,z = param
             acc = []
             start_time = time()
-            for i in range (20,epoch_limit, 5):
+            for i in range(0,epoch_limit,1):
                 score = neural_network(x_train, x_test, y_train, y_test, param, i)
                 acc.append(str(round(score[0], 3)))
             end_time = time()
@@ -329,7 +328,7 @@ def experiments_nn(df):
             x,y,z,a = param
             acc = []
             start_time = time()
-            for i in range (1,epoch_limit):
+            for i in range(0,epoch_limit,1):
                 score = neural_network(x_train, x_test, y_train, y_test, param, i)
                 acc.append(str(round(score[0], 3)))
             end_time = time()
@@ -341,7 +340,7 @@ def experiments_nn(df):
             x,y,z,a,b = param
             acc = []
             start_time = time()
-            for i in range(1,epoch_limit):
+            for i in range(0,epoch_limit,1):
                 score = neural_network(x_train, x_test, y_train, y_test, param, i)
                 acc.append(str(round(score[0], 3)))
             end_time = time()
@@ -360,7 +359,7 @@ def experiments_nn(df):
             x,y,z = param
             acc = []
             start_time = time()
-            for i in range (20,epoch_limit, 5):
+            for i in range(0,epoch_limit,1):
                 score = neural_network(x_train, x_test, y_train, y_test, param, i)
                 acc.append(str(round(score[0], 3)))
             end_time = time()
@@ -372,7 +371,7 @@ def experiments_nn(df):
             x,y,z,a = param
             acc = []
             start_time = time()
-            for i in range (1,epoch_limit):
+            for i in range(0,epoch_limit,1):
                 score = neural_network(x_train, x_test, y_train, y_test, param, i)
                 acc.append(str(round(score[0], 3)))
             end_time = time()
@@ -384,7 +383,7 @@ def experiments_nn(df):
             x,y,z,a,b = param
             acc = []
             start_time = time()
-            for i in range(1,epoch_limit):
+            for i in range(0,epoch_limit,1):
                 score = neural_network(x_train, x_test, y_train, y_test, param, i)
                 acc.append(str(round(score[0], 3)))
             end_time = time()
@@ -396,18 +395,18 @@ def experiments(df):
     """
     Read data, train models and test models, save accuracy
     """
-    file = open('results.txt', 'w')
+    file = open('results2.txt', 'w')
     file.write('model\tfraud_prop\tnormalized\ttime\taccuracy\tprecision\trecall\tF1\n')
 
-    for i in range(0, 5, 1):
+    for i in tqdm(range(0, 5, 1)):
         x_train, x_test, y_train, y_test = data_split(df, i)
 
         # test with non-normalized data
-        start_time = time()
-        accuracy, precision, recall, F1 = logisticRegression(x_train, x_test, y_train, y_test)
-        end_time = time()
-        line = '\t'.join(['logReg', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
-        file.write(line + '\n')
+        # start_time = time()
+        # accuracy, precision, recall, F1 = logisticRegression(x_train, x_test, y_train, y_test)
+        # end_time = time()
+        # line = '\t'.join(['logReg', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
+        # file.write(line + '\n')
 
         start_time = time()
         accuracy, precision, recall, f1 = gaussian(x_train, x_test, y_train, y_test)
@@ -415,17 +414,17 @@ def experiments(df):
         line = '\t'.join('gaussian', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) )
         file.write(line + '\n')
 
-        start_time = time()
-        accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
-        end_time = time()
-        line = '\t'.join(['decision_tree', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        file.write(line + '\n')
-
-        start_time = time()
-        accuracy, precision, recall, F1 = support_vector_machine(x_train, x_test, y_train, y_test)
-        end_time = time()
-        line = '\t'.join(['svm', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        file.write(line + '\n')
+        # start_time = time()
+        # accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
+        # end_time = time()
+        # line = '\t'.join(['decision_tree', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+        # file.write(line + '\n')
+        #
+        # start_time = time()
+        # accuracy, precision, recall, F1 = support_vector_machine(x_train, x_test, y_train, y_test)
+        # end_time = time()
+        # line = '\t'.join(['svm', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+        # file.write(line + '\n')
 
 
         # test with normalized data0
@@ -435,29 +434,29 @@ def experiments(df):
         y_train = y_train / np.max(y_train) # Normalise data
         y_test = y_train / np.max(y_test) # Normalise data
 
-        start_time = time()
-        accuracy, precision, recall, F1 = logisticRegression(x_train, x_test, y_train, y_test)
-        end_time = time()
-        line = '\t'.join(['logReg', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        file.write(line + '\n')
+        # start_time = time()
+        # accuracy, precision, recall, F1 = logisticRegression(x_train, x_test, y_train, y_test)
+        # end_time = time()
+        # line = '\t'.join(['logReg', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+        # file.write(line + '\n')
 
         start_time = time()
-        accuracy, precision, recall, f1 = gaussian(train_data, test_data, train_lbl, test_lbl)
+        accuracy, precision, recall, F1 = gaussian(train_data, test_data, train_lbl, test_lbl)
         end_time = time()
         line = '\t'.join('gaussian', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) )
         file.write(line + '\n')
 
-        start_time = time()
-        accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
-        end_time = time()
-        line = '\t'.join(['decision_tree', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        file.write(line + '\n')
-
-        start_time = time()
-        accuracy, precision, recall, F1 = support_vector_machine(x_train, x_test, y_train, y_test)
-        end_time = time()
-        line = '\t'.join(['svm', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
-        file.write(line + '\n')
+        # start_time = time()
+        # accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
+        # end_time = time()
+        # line = '\t'.join(['decision_tree', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+        # file.write(line + '\n')
+        #
+        # start_time = time()
+        # accuracy, precision, recall, F1 = support_vector_machine(x_train, x_test, y_train, y_test)
+        # end_time = time()
+        # line = '\t'.join(['svm', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
+        # file.write(line + '\n')
 
 
 
@@ -474,14 +473,13 @@ def main():
     ## Uncomment to print out summary stats
     #descriptive_stat(df)
 
-
-    df2 = add_features(df)
-
-    df2.to_csv('altered_credit_data.csv')
+    # df2 = add_features(df)
+    #
+    # df2.to_csv('altered_credit_data.csv')
 
 
     ## runs experiments
     #experiments_nn(df)
-    #experiments(df)
+    experiments(df)
 
 main()
