@@ -1,6 +1,16 @@
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Leading payment methods in the United States in 2017 \cite {paymentMethods}}}{2}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Value of payment card fraud losses in the United States from 2012 to 2018, by type (in billion U.S. dollars) \cite {USA}}}{3}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Training Distribution vs. the credit card fraud cost model \cite {Chan}}}{6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Parenclitic Network Formation \cite {Boccaletti}}}{8}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Overall system \cite {Zanin2018}}}{9}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Bipartie graph visualization \cite {Tian}}}{14}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Rule Based Game Theoretic Approach: Search Structure}}{17}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Architecture of Rule Based Filter, Dempster-Shafer Adder, Transaction History Database, and Bayesian Learner}}{19}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Logistic Regression}}{30}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Neural Network}}{31}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
