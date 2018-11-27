@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  24 NOV 2018 20:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  26 NOV 2018 21:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -682,43 +682,54 @@ File: bipartie.png Graphic file (type png)
  <use bipartie.png>
 Package pdftex.def Info: bipartie.png used on input line 152.
 (pdftex.def)             Requested size: 457.70888pt x 136.25871pt.
- [14 <./bipartie.png>] [15]
-
-LaTeX Warning: Citation `Vasta2007' on page 16 undefined on input line 172.
-
-[16] <gametheory.png, id=89, 319.1925pt x 223.83624pt>
+ [14 <./bipartie.png>] [15] [16] <gametheory.png, id=89, 319.1925pt x 223.83624
+pt>
 File: gametheory.png Graphic file (type png)
- <use gametheory.png>
+
+<use gametheory.png>
 Package pdftex.def Info: gametheory.png used on input line 180.
 (pdftex.def)             Requested size: 319.19171pt x 223.8357pt.
-
-[17 <./gametheory.png>] <GameTheory2.png, id=94, 686.565pt x 529.98pt>
+ [17 <./gametheory.png>]
+<GameTheory2.png, id=94, 686.565pt x 529.98pt>
 File: GameTheory2.png Graphic file (type png)
-
-<use GameTheory2.png>
-Package pdftex.def Info: GameTheory2.png used on input line 202.
+ <use GameTheory2.png>
+Package pdftex.def Info: GameTheory2.png used on input line 200.
 (pdftex.def)             Requested size: 686.56332pt x 529.97868pt.
- [18] [19 <./GameTheory2.png>] [20] [21]
+ [18]
+[19 <./GameTheory2.png>] [20] [21]
 Chapter 3.
 [22
 
 ] [23] [24] [25] [26] [27] [28] [29]
 Chapter 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <24.88> on input line 316.
+(Font)              <24.88> on input line 313.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 316.
+(Font)              <20.74> on input line 313.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 316.
+(Font)              <17.28> on input line 313.
 [30
 
 ] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
+<amountxnewbalancedest.png, id=181, 462.528pt x 346.896pt>
+File: amountxnewbalancedest.png Graphic file (type png)
+
+<use amountxnewbalancedest.png>
+Package pdftex.def Info: amountxnewbalancedest.png used on input line 732.
+(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
+
+<amountxtype.png, id=182, 462.528pt x 346.896pt>
+File: amountxtype.png Graphic file (type png)
+ <use amountxtype.png>
+Package pdftex.def Info: amountxtype.png used on input line 738.
+(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
+ [43 <./amountxnewbalancedest.png>] [44 <./amountxtype.png>]
 Chapter 5.
-[43
+[45
 
 ]
 Chapter 6.
-(./AstizThesis.bbl [44
+(./AstizThesis.bbl [46
 
 ]
 Missing character: There is no â in font ptmr7t!
@@ -727,6 +738,9 @@ Missing character: There is no ¢ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ¢ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
@@ -739,21 +753,18 @@ Missing character: There is no ” in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- [45
+ [47
 
-]) [46] (./AstizThesis.aux)
-
-LaTeX Warning: There were undefined references.
-
+]) [48] (./AstizThesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14237 strings out of 492995
- 293646 string characters out of 6132704
- 330423 words of memory out of 5000000
- 17490 multiletter control sequences out of 15000+600000
+ 14251 strings out of 492995
+ 293932 string characters out of 6132704
+ 330421 words of memory out of 5000000
+ 17502 multiletter control sequences out of 15000+600000
  18745 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,16n,70p,1569b,953s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -766,10 +777,10 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
 17/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on AstizThesis.pdf (52 pages, 779061 bytes).
+Output written on AstizThesis.pdf (54 pages, 811487 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
+ 235 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

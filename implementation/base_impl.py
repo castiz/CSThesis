@@ -16,6 +16,8 @@ import glob
 from time import time
 import math
 from tqdm import tqdm
+import matplotlib.pyplot as plt
+import sys
 
 
 def add_features(df):
@@ -292,16 +294,16 @@ def experiments_nn(df):
         (256,64,2),
         (256,256,2),
         (512,64,2)]
-    models2 = [
-        (256,128,64,2),
-        (256,128,128,2),
-        (256,256,64,2),
-        (512,128,128,2)]
-    models3 = [
-        (256,256,256,256,2),
-        (512,128,128,128,2),
-        (512,256,256,128,2),
-        (1024,256,128,128,2)]
+    # models2 = [
+    #     (256,128,64,2),
+    #     (256,128,128,2),
+    #     (256,256,64,2),
+    #     (512,128,128,2)]
+    # models3 = [
+    #     (256,256,256,256,2),
+    #     (512,128,128,128,2),
+    #     (512,256,256,128,2),
+    #     (1024,256,128,128,2)]
 
     file = open('results_nn2.txt', 'w')
     file.write('fraud_prop\tnormalized\tx\ty\tz\ta\ttime\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\n')
@@ -316,37 +318,39 @@ def experiments_nn(df):
             x,y,z = param
             acc = []
             start_time = time()
-            for i in range(0,epoch_limit,1):
-                score = neural_network(x_train, x_test, y_train, y_test, param, i)
-                acc.append(str(round(score[0], 3)))
+            # for i in range(0,epoch_limit,1):
+            #     score = neural_network(x_train, x_test, y_train, y_test, param, i)
+            #     acc.append(str(round(score[0], 3)))
+            score = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
+            acc.append(str(round(score[0], 3)))
             end_time = time()
             line = '\t'.join([str(i), '0', str(x), str(y), str(z), '\t', str(round(end_time - start_time, 1))]+acc)
             print(line)
             file.write(line + '\n')
 
-        for param in models2:
-            x,y,z,a = param
-            acc = []
-            start_time = time()
-            for i in range(0,epoch_limit,1):
-                score = neural_network(x_train, x_test, y_train, y_test, param, i)
-                acc.append(str(round(score[0], 3)))
-            end_time = time()
-            line = '\t'.join([str(i), '0', str(x), str(y), str(z), str(a), '', str(round(end_time - start_time, 1))]+acc)
-            print(line)
-            file.write(line + '\n')
-
-        for param in models3:
-            x,y,z,a,b = param
-            acc = []
-            start_time = time()
-            for i in range(0,epoch_limit,1):
-                score = neural_network(x_train, x_test, y_train, y_test, param, i)
-                acc.append(str(round(score[0], 3)))
-            end_time = time()
-            line = '\t'.join([str(i), '0', str(x), str(y), str(z), str(a), str(b), str(round(end_time - start_time, 1))]+acc)
-            print(line)
-            file.write(line + '\n')
+        # for param in models2:
+        #     x,y,z,a = param
+        #     acc = []
+        #     start_time = time()
+        #     for i in range(0,epoch_limit,1):
+        #         score = neural_network(x_train, x_test, y_train, y_test, param, i)
+        #         acc.append(str(round(score[0], 3)))
+        #     end_time = time()
+        #     line = '\t'.join([str(i), '0', str(x), str(y), str(z), str(a), '', str(round(end_time - start_time, 1))]+acc)
+        #     print(line)
+        #     file.write(line + '\n')
+        #
+        # for param in models3:
+        #     x,y,z,a,b = param
+        #     acc = []
+        #     start_time = time()
+        #     for i in range(0,epoch_limit,1):
+        #         score = neural_network(x_train, x_test, y_train, y_test, param, i)
+        #         acc.append(str(round(score[0], 3)))
+        #     end_time = time()
+        #     line = '\t'.join([str(i), '0', str(x), str(y), str(z), str(a), str(b), str(round(end_time - start_time, 1))]+acc)
+        #     print(line)
+        #     file.write(line + '\n')
 
         # normalized
 
@@ -359,37 +363,39 @@ def experiments_nn(df):
             x,y,z = param
             acc = []
             start_time = time()
-            for i in range(0,epoch_limit,1):
-                score = neural_network(x_train, x_test, y_train, y_test, param, i)
-                acc.append(str(round(score[0], 3)))
+            # for i in range(0,epoch_limit,1):
+            #     score = neural_network(x_train, x_test, y_train, y_test, param, i)
+            #     acc.append(str(round(score[0], 3)))
+            score = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
+            acc.append(str(round(score[0], 3)))
             end_time = time()
             line = '\t'.join([str(i), '1', str(x), str(y), str(z), '\t', str(round(end_time - start_time, 1))]+acc)
             print(line)
             file.write(line + '\n')
 
-        for param in models2:
-            x,y,z,a = param
-            acc = []
-            start_time = time()
-            for i in range(0,epoch_limit,1):
-                score = neural_network(x_train, x_test, y_train, y_test, param, i)
-                acc.append(str(round(score[0], 3)))
-            end_time = time()
-            line = '\t'.join([str(i), '1', str(x), str(y), str(z), str(a), '', str(round(end_time - start_time, 1))]+acc)
-            print(line)
-            file.write(line + '\n')
-
-        for param in models3:
-            x,y,z,a,b = param
-            acc = []
-            start_time = time()
-            for i in range(0,epoch_limit,1):
-                score = neural_network(x_train, x_test, y_train, y_test, param, i)
-                acc.append(str(round(score[0], 3)))
-            end_time = time()
-            line = '\t'.join([str(i), '1', str(x), str(y), str(z), str(a), str(b), str(round(end_time - start_time, 1))]+acc)
-            print(line)
-            file.write(line + '\n')
+        # for param in models2:
+        #     x,y,z,a = param
+        #     acc = []
+        #     start_time = time()
+        #     for i in range(0,epoch_limit,1):
+        #         score = neural_network(x_train, x_test, y_train, y_test, param, i)
+        #         acc.append(str(round(score[0], 3)))
+        #     end_time = time()
+        #     line = '\t'.join([str(i), '1', str(x), str(y), str(z), str(a), '', str(round(end_time - start_time, 1))]+acc)
+        #     print(line)
+        #     file.write(line + '\n')
+        #
+        # for param in models3:
+        #     x,y,z,a,b = param
+        #     acc = []
+        #     start_time = time()
+        #     for i in range(0,epoch_limit,1):
+        #         score = neural_network(x_train, x_test, y_train, y_test, param, i)
+        #         acc.append(str(round(score[0], 3)))
+        #     end_time = time()
+        #     line = '\t'.join([str(i), '1', str(x), str(y), str(z), str(a), str(b), str(round(end_time - start_time, 1))]+acc)
+        #     print(line)
+        #     file.write(line + '\n')
 
 def experiments(df):
     """
@@ -409,9 +415,9 @@ def experiments(df):
         # file.write(line + '\n')
 
         start_time = time()
-        accuracy, precision, recall, f1 = gaussian(x_train, x_test, y_train, y_test)
+        accuracy, precision, recall, F1 = gaussian(x_train, x_test, y_train, y_test)
         end_time = time()
-        line = '\t'.join('gaussian', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) )
+        line = '\t'.join(['gaussian', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
         file.write(line + '\n')
 
         # start_time = time()
@@ -441,9 +447,9 @@ def experiments(df):
         # file.write(line + '\n')
 
         start_time = time()
-        accuracy, precision, recall, F1 = gaussian(train_data, test_data, train_lbl, test_lbl)
+        accuracy, precision, recall, F1 = gaussian(x_train, x_test, y_train, y_test)
         end_time = time()
-        line = '\t'.join('gaussian', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) )
+        line = '\t'.join(['gaussian', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
         file.write(line + '\n')
 
         # start_time = time()
@@ -458,6 +464,87 @@ def experiments(df):
         # line = '\t'.join(['svm', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
         # file.write(line + '\n')
 
+def plot(df):
+    groups = df.groupby('isFraud')
+
+# Plot
+    fig, ax = plt.subplots()
+    ax.margins(0.05)
+    for name, group in groups:
+        ax.plot(group.type, group.amount, marker='o', linestyle='', ms=12, label=name)
+    ax.legend()
+
+    plt.show()
+
+def test_nn_simplified(i, df):
+    """
+    Read data, train neural network models and test models, save accuracy
+    """
+
+    epoch_limit = 20
+
+    models1 = [
+        (256,64,2),
+        (256,256,2),
+        (512,64,2)]
+
+    file = open('results_simplified_nn'+ str(i)+ '.txt', 'w')
+    file.write('fraud_prop\tnormalized\tx\ty\tz\ttime\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\n')
+
+    x_train, x_test, y_train, y_test = data_split(df, i)
+
+    #non normalized
+
+    for param in models1:
+        x,y,z = param
+        acc = []
+        start_time = time()
+        accuracy, precision, recall, F1 = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
+        end_time = time()
+        line = '\t'.join([str(i), '1', , str(x), str(y), str(z), str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+        print(line)
+        file.write(line + '\n')
+
+    # normalized
+
+    x_train = x_train / np.max(x_train) # Normalise data
+    x_test = x_train / np.max(x_test) # Normalise data
+    y_train = y_train / np.max(y_train) # Normalise data
+    y_test = y_train / np.max(y_test) # Normalise data
+
+    for param in models1:
+        x,y,z = param
+        acc = []
+        start_time = time()
+        accuracy, precision, recall, F1 = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
+        end_time = time()
+        line = '\t'.join([str(i), '1', , str(x), str(y), str(z), str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+        print(line)
+        file.write(line + '\n')
+
+def full_data_guass(df):
+    # for running only gaussian on the original dataset
+    file = open('results_gauss_0.txt', 'w')
+    file.write('model\tfraud_prop\tnormalized\ttime\taccuracy\tprecision\trecall\tF1\n')
+
+    x_train, x_test, y_train, y_test = data_split(df, 0)
+
+    start_time = time()
+    accuracy, precision, recall, F1 = gaussian(x_train, x_test, y_train, y_test)
+    end_time = time()
+    line = '\t'.join(['gaussian', str(0), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+    file.write(line + '\n')
+
+    x_train = x_train / np.max(x_train) # Normalise data
+    x_test = x_train / np.max(x_test) # Normalise data
+    y_train = y_train / np.max(y_train) # Normalise data
+    y_test = y_train / np.max(y_test) # Normalise data
+
+    start_time = time()
+    accuracy, precision, recall, F1 = gaussian(x_train, x_test, y_train, y_test)
+    end_time = time()
+    line = '\t'.join(['gaussian', str(0), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+    file.write(line + '\n')
 
 
 def main():
@@ -480,6 +567,16 @@ def main():
 
     ## runs experiments
     #experiments_nn(df)
-    experiments(df)
+    #experiments(df)
+    #plot(df)
+
+    run = sys.argv[1]
+
+    if run == 'g':
+        full_data_guass(df)
+
+    else:
+        test_nn_simplified(run, df) # need to run 0-5
+
 
 main()

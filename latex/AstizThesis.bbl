@@ -33,6 +33,12 @@ Tom Fawcett and Foster Provost.
 Prashant Gupta.
 \newblock {Decision Trees in Machine Learning – Towards Data Science}.
 
+\bibitem{Panigrahi2009}
+Suvasini Panigrahi, Amlan Kundu, Shamik Sural, and A.K. Majumdar.
+\newblock {Credit card fraud detection: A fusion approach using
+  Dempster–Shafer theory and Bayesian learning}.
+\newblock {\em Information Fusion}, 10(4):354--363, oct 2009.
+
 \bibitem{paysim}
 Paysim.
 \newblock {Synthetic Financial Datasets For Fraud Detection | Kaggle}.
@@ -63,6 +69,13 @@ Saishruthi Swaminathan.
 Tian Tian, Jun Zhu, Fen Xia, Xin Zhuang, and Tong Zhang.
 \newblock {Crowd Fraud Detection in Internet Advertising}.
 
+\bibitem{Vatsa2007}
+Vishal Vatsa, Shamik Sural, and A.~K. Majumdar.
+\newblock {A Rule-Based and Game-Theoretic Approach to Online Credit Card Fraud
+  Detection}.
+\newblock {\em International Journal of Information Security and Privacy},
+  1(3):26--46, jul 2007.
+
 \bibitem{Wang2018}
 Mac Wang.
 \newblock {How to protect your business from online payments fraud - CSO | The
@@ -74,6 +87,12 @@ Roy Wedge, James~Max Kanter, Kalyan Veeramachaneni, Santiago~Moral Rubio,
 \newblock {Solving the "false positives" problem in fraud prediction Automated
   Data Science at an Industrial Scale}.
 \newblock Technical report.
+
+\bibitem{Wilks2004}
+T.~Jeffrey Wilks and Mark~F. Zimbelman.
+\newblock {Using Game Theory and Strategic Reasoning Concepts to Prevent and
+  Detect Fraud}.
+\newblock {\em Accounting Horizons}, 18(3):173--184, sep 2004.
 
 \bibitem{Zanin2018}
 Massimiliano Zanin, Miguel Romance, Santiago Moral, and Regino Criado.

@@ -14,45 +14,45 @@ Warning--empty journal in Tian
 Warning--empty year in Tian
 Warning--empty institution in Wedge
 Warning--empty year in Wedge
-You've used 18 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            580 strings with 6374 characters,
-and the built_in function-call counts, 4378 in all, are:
-= -- 385
-> -- 230
+            604 strings with 7001 characters,
+and the built_in function-call counts, 5458 in all, are:
+= -- 494
+> -- 284
 < -- 0
-+ -- 94
-- -- 76
-* -- 262
-:= -- 738
-add.period$ -- 40
-call.type$ -- 18
-change.case$ -- 96
++ -- 115
+- -- 94
+* -- 358
+:= -- 919
+add.period$ -- 49
+call.type$ -- 21
+change.case$ -- 114
 chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 145
-empty$ -- 373
-format.name$ -- 76
-if$ -- 890
+cite$ -- 32
+duplicate$ -- 178
+empty$ -- 452
+format.name$ -- 94
+if$ -- 1105
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 4
-newline$ -- 79
-num.names$ -- 30
-pop$ -- 138
+int.to.str$ -- 21
+missing$ -- 7
+newline$ -- 94
+num.names$ -- 36
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 74
+purify$ -- 89
 quote$ -- 0
-skip$ -- 144
+skip$ -- 166
 stack$ -- 0
-substring$ -- 141
-swap$ -- 13
+substring$ -- 225
+swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 84
 warning$ -- 11
-while$ -- 36
-width$ -- 20
-write$ -- 145
+while$ -- 48
+width$ -- 23
+write$ -- 178
 (There were 11 warnings)

@@ -25,7 +25,7 @@ I am writing about fraud and how to detect it! Wooh!
 \end{abstract}
 
 \begin{acknowledgements}
-I would like to thank Professor Linderman and Professor Scharstein first and foremost for their help in this Computer Science Thesis. Without them, this thesis would cease to exist. I would also like to thank the Computer Science department at Middlebury College for giving me the opportunity to learn and develop as a computer scientist. Last, I would like to thank all my unnamed interviewees who were willing to discuss their expertise about fraud detection with me. I truly appreciate all who helped create this thesis, and add to my knowledge!
+I would like to thank Professor Linderman and Professor Scharstein first and foremost for their help in this Computer Science Thesis. Without them, this thesis would cease to exist. I would also like to thank the Computer Science department at Middlebury College for giving me the opportunity to learn and develop as a computer scientist. Last, I would like to thank all my unnamed interviewees who were willing to discuss their expertise about fraud detection with me, in addition to my friends and family who supported me through the arduous thesis writing process. I truly appreciate all who helped create this thesis, and add to my knowledge!
 
 \end{acknowledgements}
 
@@ -169,7 +169,7 @@ Credit card fraud detection, while automated by machines, benefits from the inge
 
 % Gametheory 1 paper
  
-In a paper by Vasta et al, a rule based system is combined with a Game-theory \cite{Vasta2007}. With credit card fraud, the fraudster and fraud detecter have conflicting motives, each trying to maximize their own payoff through a multistage game between the two players. Here, fraudsters are considered to be rational adversaries, meaning that fraudsters are attempting to maximize their gain without being detected. Companies are trying to minimize their losses to fraud, and therefore the game between the two parties becomes a maximization-minimization problem. By using game theory, companies can start to predict future attacks while also providing possible courses of action to defend against them.
+In a paper by Vasta et al, a rule based system is combined with a Game-theory \cite{Vatsa2007}. With credit card fraud, the fraudster and fraud detecter have conflicting motives, each trying to maximize their own payoff through a multistage game between the two players. Here, fraudsters are considered to be rational adversaries, meaning that fraudsters are attempting to maximize their gain without being detected. Companies are trying to minimize their losses to fraud, and therefore the game between the two parties becomes a maximization-minimization problem. By using game theory, companies can start to predict future attacks while also providing possible courses of action to defend against them.
  
 Credit card fraud detection is not like a traditional game. With credit card fraud, an attacker can make multiple moves insofar as the fraudster can continue to commit fraud until it is caught or sees some action from the fraud detection system. In addition, the attacker can act without time constraints; a fraudster can calculate their move for as long as possible. Lastly, the possible set of moves in this game is not well defined because of the adaptive nature of fraud and fraud detection. This is very similar to database intrusion detection as well. 
 
@@ -185,15 +185,13 @@ Information is the main currency in this game. To begin, there is a lack of info
 A transaction will go through two tiers before a final decision is made: a rule based tier and a game theory tier. The rule based tier calculates a suspicion score for each transaction; if the transaction fails the rule system, it is then sent through the second tier. In the second tier, a heuristic is calculated by going through the feature space. The authors model the problem based on parameters about the type of fraudster it is, the strategy space for both parties and the action space for both parties. The structure of how the heuristic is calculated is similar to a decision tree, as shown in Figure~\ref{fig:gametheory1}. The benefit of using this system is that if the system thinks that the fraudster is learning its strategy, it can change strategies, or can strengthen its beliefs if it thinks its learning the type of fraudster.    
 
 
-% Game Theory 2 paper ADD TO MENDELEY & Bibtex file
 %google  Dempster-Shafer equation latex
-%\cite{Panigrahi}
 
-Panigrahi et al similarly combine game theory with a rule based filter to create a fraud detection system. This system varies from Vasta et al's because it has 4 distinct phases. The system begins with a rule based filter, similar to those perviously described. Rules include an address check and outlier detection, where the system checks how much a transaction varies from a user profile as well as general rules. From this rule based system, transactions are put into three categories: fraud, non-fraud, and suspicious. 
+Panigrahi et al similarly combine game theory with a rule based filter to create a fraud detection system. This system varies from Vasta et al's because it has 4 distinct phases. The system begins with a rule based filter, similar to those perviously described. Rules include an address check and outlier detection, where the system checks how much a transaction varies from a user profile as well as general rules. From this rule based system, transactions are put into three categories: fraud, non-fraud, and suspicious \cite{Panigrahi2009}. 
 
-To combine these rules, Panigrahi et al use Dempster-Shafer theory, followed by a transaction history database, and a Bayesian learner. The Dempster-Shafer theory assigns a fraud probability to an event based on the classification the transaction has from the rule based system. For example, if a transaction is classified as non-fraud in the address portion, it will have 0 added to its overall fraud probability prediction. Those results are then fed to a transaction history database, which compares the current transaction with the user's past transactions as well as a generic database of fraud. 
+To combine these rules, Panigrahi et al use Dempster-Shafer theory, followed by a transaction history database, and a Bayesian learner \cite{Panigrahi2009}. The Dempster-Shafer theory assigns a fraud probability to an event based on the classification the transaction has from the rule based system. For example, if a transaction is classified as non-fraud in the address portion, it will have 0 added to its overall fraud probability prediction. Those results are then fed to a transaction history database, which compares the current transaction with the user's past transactions as well as a generic database of fraud. 
 
-Information about how much the transaction is deviating from normal behavior in 4 mutually exclusive cases is then sent to the Bayesian learner. The Bayesian learner then calculates a suspicion score, which is combined with the earlier suspicion score using Dempster-Shafer again. Based on a threshold, a transaction is then classified as fraud or non-fraud. A visualization of this system can be seen in Figure~\ref{fig:gametheory2}. Through their experiements, Panigrahi et al find that 0.3 and 0.7 are the most accurate lower and upper bounds, respectively, and that their system increased the true positive rate by about 15-20\%. 
+Information about how much the transaction is deviating from normal behavior in 4 mutually exclusive cases is then sent to the Bayesian learner. The Bayesian learner then calculates a suspicion score, which is combined with the earlier suspicion score using Dempster-Shafer again. Based on a threshold, a transaction is then classified as fraud or non-fraud. A visualization of this system can be seen in Figure~\ref{fig:gametheory2}. Through their experiements, Panigrahi et al find that 0.3 and 0.7 are the most accurate lower and upper bounds, respectively, and that their system increased the true positive rate by about 15-20\% \cite{Panigrahi2009}. 
 
 
 %% add equation for Dempster Shafer
@@ -206,15 +204,14 @@ Information about how much the transaction is deviating from normal behavior in 
 
 
 \subsection{Auditing with Game Theory}
-% ADD TO MENDELEY & Bibtex file
 
-Game theory concepts can also be leveraged in the auditing context. Wilks and Zimbelman study the current financial auditing methods and offer suggestions for improving systems adding game theory. The authors describe that there are several levels of reasoning: zero order, first order, and higher order. Zero order logic occurs when a user is only considering conditions affecting themselves. First order is when a user considers some conditions, and higher order is when a user considers multiple levels of reasoning and layers of complexity. Since fraud and fraud detection are games highly reliant on opponent's moves, strategy can change drastically based on response from the other player. This is inherently difficult because either parties' next move is highly dependent on the other's move. 
+Game theory concepts can also be leveraged in the auditing context. Wilks and Zimbelman study the current financial auditing methods and offer suggestions for improving systems adding game theory. The authors describe that there are several levels of reasoning: zero order, first order, and higher order \cite{Wilks2004}. Zero order logic occurs when a user is only considering conditions affecting themselves. First order is when a user considers some conditions, and higher order is when a user considers multiple levels of reasoning and layers of complexity. Since fraud and fraud detection are games highly reliant on opponent's moves, strategy can change drastically based on response from the other player. This is inherently difficult because either parties' next move is highly dependent on the other's move. 
 
-Currently, the best practices of the auditing field require auditors to go through a checklist of ``red flags". While this is very effective for first order reasoning, it does not catch any fraudsters that are reacting to changes in the ``red flag" checklist. The authors point out that these checklists have been shown to be less sensitive than intuitive fraud risk models. This is in part because of the dilution effect, where an auditor is focusing on too many irrelevant cues instead of the relevant cues. 
+Currently, the best practices of the auditing field require auditors to go through a checklist of ``red flags". While this is very effective for first order reasoning, it does not catch any fraudsters that are reacting to changes in the ``red flag" checklist. The authors point out that these checklists have been shown to be less sensitive than intuitive fraud risk models. This is in part because of the dilution effect, where an auditor is focusing on too many irrelevant cues instead of the relevant cues \cite{Wilks2004}. 
 
-Instead, the authors suggest decomposing the decision into multiple components, making a judgement on each of these components, and recombining to make a global decision. The three elements the authors contribute to fraud are known as the ``fraud triangle": incentive, opportunity, and attitude. The authors also suggest that having auditors meet with their clients and look for in person cues helps auditors learn cues and potentially fraudulent behaviors. Through this process, Wilks and Zimbelman find that accuracy improved in low risk fraud situations, but did not improve high risk situations. They also found that attitude cues are easily concealed, and that auditors often were anchored to their initial judgements, and were unlikely to change their minds given new information.
+Instead, the authors suggest decomposing the decision into multiple components, making a judgement on each of these components, and recombining to make a global decision. The three elements the authors contribute to fraud are known as the ``fraud triangle": incentive, opportunity, and attitude \cite{Wilks2004}. The authors also suggest that having auditors meet with their clients and look for in person cues helps auditors learn cues and potentially fraudulent behaviors. Through this process, Wilks and Zimbelman find that accuracy improved in low risk fraud situations, but did not improve high risk situations. They also found that attitude cues are easily concealed, and that auditors often were anchored to their initial judgements, and were unlikely to change their minds given new information.
 
-Through their experiments, the authors offer advice that can be applied to audits as well as credit card fraud detection. The two main components the authors suggest adding are unpredictability and strategic reasoning. Unpredictability can be achieved by changing the time line of the fraud detection or audit, as well as changing the way the system works from time to time. This unpredictability can help catch fraudsters that were not anticipating an audit, and therefore might not have hidden their work as well. The authors also suggest adding opportunities for auditors to learn strategic reasoning, and increase their intuition. 
+Through their experiments, the authors offer advice that can be applied to audits as well as credit card fraud detection. The two main components the authors suggest adding are unpredictability and strategic reasoning. Unpredictability can be achieved by changing the time line of the fraud detection or audit, as well as changing the way the system works from time to time. This unpredictability can help catch fraudsters that were not anticipating an audit, and therefore might not have hidden their work as well \cite{Wilks2004}. The authors also suggest adding opportunities for auditors to learn strategic reasoning, and increase their intuition. 
 
 While this is true of humans, it is also true of fraud detection systems, as models also need the opportunity to engage with new fraudulent behavior to learn new patterns. Through incorporating human intuition into computerized systems, fraud detection systems can continue to move towards taking all analysts out of the process of fraud detection. Without it, companies will continue to argue that humans have intuition machines do not, requiring overhead from manual transaction processing. 
 
@@ -598,7 +595,6 @@ The most successful models and their metrics are shown in the following tables. 
 \scalebox{1} {
 \begin{tabular}{l@{\hskip 0.7in} c c c c} \addlinespace\hline\hline
 \addlinespace
-%\multicolumn{1}{c}{}&\multicolumn{4}{c}{2009 to 2015}\\
 Method&Accuracy& Precision&Recall& F1 Score\\
 \hline
 
@@ -616,7 +612,7 @@ Logistic Regression	            &	0.905	&	0.899	&	0.911	&	0.905	\\
 %Neural Network 	                &	0.998		&	0	&	0	&	0	\\
 Decision Tree	            &	0.992		&	0.994	&	0.989	&	0.992	\\
 SVM	        &	0.501		&	1	&	0.506	&	0.672	\\
-Gaussian	        &	0		&	0	&	0	&	0	\\
+Gaussian	        &	0.673		&	0.855	&	0.631	&	0.726	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{66.6/33.3 data distribution}}\\
@@ -624,7 +620,7 @@ Logistic Regression	            &	0.910	&	0.854	&	0.885	&	0.869	\\
 %Neural Network 	                &	0.998		&	0	&	0	&	0	\\
 Decision Tree	            &	0.994		&	0.994	&	0.990	&	0.992	\\
 SVM	        &	0.351		&	1	&	0.351	&	0.519	\\
-Gaussian	        &	0		&	0	&	0	&	0	\\
+Gaussian	        &	0.623		&	0.858	&	0.479	&	0.615	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{75/25 data distribution}}\\
@@ -632,7 +628,7 @@ Logistic Regression	            &	0.931	&	0.839	&	0.880	&	0.860	\\
 %Neural Network 	                &	0.998		&	0	&	0	&	0	\\
 Decision Tree	            &	0.993		&	0.994	&	0.977	&	0.986	\\
 SVM	        &	0.251		&	1	&	0.250	&	0.401	\\
-Gaussian	        &	0		&	0	&	0	&	0	\\
+Gaussian	        &	0.584		&	0.883	&	0.364	&	0.515	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{80/20 data distribution}}\\
@@ -640,7 +636,7 @@ Logistic Regression	            &	0.938	&	0.820	&	0.880	&	0.850	\\
 %Neural Network 	                &	0.998		&	0	&	0	&	0	\\
 Decision Tree	            &	0.994		&	0.984	&	0.990	&	0.986	\\
 SVM	        &	0.210		&	1	&	0.210	&	0.344	\\
-Gaussian	        &	0		&	0	&	0	&	0	\\
+Gaussian	        &	0.722		&	0.605	&	0.391	&	0.475	\\
 
 
 
@@ -664,7 +660,6 @@ Gaussian	        &	0		&	0	&	0	&	0	\\
 \scalebox{1} {
 \begin{tabular}{l@{\hskip 0.7in} c c c c} \addlinespace\hline\hline
 \addlinespace
-%\multicolumn{1}{c}{}&\multicolumn{4}{c}{2009 to 2015}\\
 Method&Accuracy& Precision&Recall& F1 Score\\
 \hline
 \addlinespace
@@ -682,7 +677,7 @@ Logistic Regression	            &	0.501	&	0	&	0	&	0	\\
 %Neural Network 	                &	0.998		&	0	&	0	&	0	\\
 Decision Tree	            &	0.499		&	1	&	0.499	&	0.666	\\
 SVM	        &	0.538		&	0.498	&	0.541	&	0.519	\\
-Gaussian	        &	0		&	0	&	0	&	0	\\
+Gaussian	        &	0.499		&	1	&	0.499	&	0.666	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{66.6/33.3 data distribution }}\\
@@ -690,7 +685,7 @@ Logistic Regression	            &	0.670	&	0	&	0	&	0	\\
 %Neural Network 	                &	0.998		&	0	&	0	&	0	\\
 Decision Tree	            &	0.330		&	1	&	0.330	&	0.497	\\
 SVM	        &	0.330		&	1	&	0.330	&	0.497	\\
-Gaussian	        &	0		&	0	&	0	&	0	\\
+Gaussian	        &	0.330		&	1	&	0.330	&	0.497	\\
 
 
 \addlinespace
@@ -699,7 +694,7 @@ Logistic Regression	            &	0.750	&	0	&	0	&	0	\\
 %Neural Network 	                &	0.998		&	0	&	0	&	0	\\
 Decision Tree	            &	0.250		&	1	&	0.250	&	0.400	\\
 SVM	        &	0.250		&	1	&	0.250	&	0.400	\\
-Gaussian	        &	0		&	0	&	0	&	0	\\
+Gaussian	        &	0.250		&	1	&	0.250	&	0.400	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{80/20}}\\
@@ -707,7 +702,7 @@ Logistic Regression	            &	0.801	&	0	&	0	&	0	\\
 %Neural Network 	                &	0.998		&	0	&	0	&	0	\\
 Decision Tree	            &	0.801	&	0	&	0	&	0	\\
 SVM	        &	0.801	&	0	&	0	&	0	\\
-Gaussian	        &	0		&	0	&	0	&	0	\\
+Gaussian	        &	0.167		&	0.500	&	0.120	&	0.192	\\
 
 
 
@@ -729,7 +724,22 @@ Gaussian	        &	0		&	0	&	0	&	0	\\
 
 \subsection{Discussion}
 
-This section will compare my hypothesis to the results, as well as my results to the model I'm basing it off of. I also plan on adding any notes I learn along the way of this implementation.
+It is possible that the data divisibility impacted the results of the paper. Classifiers perform best when the data is easily dividable between the data classes. When the data between classes are mixed, then it is more difficult to fit a classifier that is accurate while also not overfitting to the data. If the model overfits, then new examples are likely to be classified incorrectly. Figure~\ref{fig:data1} is an example of one dimension of the data: amount of transaction by the new balance of the destination account. Here, the fraudulent transactions seem somewhat clumped, but not easily divisible from the authentic transactions. However, when looking at the distribution in Figure~\ref{fig:data2}, fraudulent transactions seem much more divisible, as they make up the entirety of the cash-out transactions and some of the transfers. If a classifier predicts all cash-out transactions to be fraud, in this case, it would be correct. 
+
+
+\begin{figure} \centering
+  \includegraphics[scale=0.75]{amountxnewbalancedest.png}
+  \caption{Data Amounts by New Balance at Destination Account}
+  \label{fig:data1}
+\end{figure}
+
+\begin{figure} \centering
+  \includegraphics[scale=0.75]{amountxtype.png}
+  \caption{Transaction Category by Amount}
+  \label{fig:data2}
+\end{figure}
+
+
 
 
 \pagebreak
