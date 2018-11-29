@@ -8,6 +8,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import svm
 from sklearn.metrics import accuracy_score
+from sklearn.decomposition import PCA
 import numpy as np
 import csv
 import pandas as pd
@@ -225,9 +226,9 @@ def precision_and_recall(test_lbl, predictions):
             tp += 1
         else:
             if(test_lbl[i] != predictions[i] and test_lbl[i] == 1):
-                fp += 1
-            elif(test_lbl[i] != predictions[i] and test_lbl[i] == 0):
                 fn += 1
+            elif(test_lbl[i] != predictions[i] and test_lbl[i] == 0):
+                fp += 1
             else:
                 continue
 
@@ -270,6 +271,7 @@ def data_split(df, fraud_prop):
         split = data0
     else:
         split = data0.sample(n=n_fraud*fraud_prop)
+        data0 = data0.drop(split.index)
 
     frames = [data1, split]
 
@@ -280,6 +282,18 @@ def data_split(df, fraud_prop):
 
 
     x_train, x_test, y_train, y_test = train_test_split(cleaned_data, labels, test_size=1/7.0, random_state=42) # had this set to 0 before
+
+    if fraud_prop != 0:
+        more_legit = data0.sample(n=2000000)
+        cleaned_data2 = more_legit[['type','amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest', 'newbalanceDest', 'step']]
+        labels2 = more_legit[['isFraud']]
+        x_test_frames = [x_test, cleaned_data2]
+        y_test_frames = [y_test, labels2]
+
+        x_test_final = pd.concat(x_test_frames)
+        y_test_final = pd.concat(y_test_frames)
+
+        return x_train, x_test_final, y_train, y_test_final
 
     return x_train, x_test, y_train, y_test
 
@@ -305,11 +319,10 @@ def experiments_nn(df):
     #     (512,256,256,128,2),
     #     (1024,256,128,128,2)]
 
-    file = open('results_nn2.txt', 'w')
-    file.write('fraud_prop\tnormalized\tx\ty\tz\ta\ttime\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\n')
+    file = open('results_nn_corrected_data.txt', 'w')
+    file.write('fraud_prop\tnormalized\tx\ty\tz\ttime\taccuracy\tprecision\trecall\tf1\n')
 
-
-    for i in tqdm(range(0, 5, 1)):
+    for i in tqdm(range(1, 5, 1)):
         x_train, x_test, y_train, y_test = data_split(df, i)
 
         #non normalized
@@ -321,10 +334,10 @@ def experiments_nn(df):
             # for i in range(0,epoch_limit,1):
             #     score = neural_network(x_train, x_test, y_train, y_test, param, i)
             #     acc.append(str(round(score[0], 3)))
-            score = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
-            acc.append(str(round(score[0], 3)))
+            start_time = time()
+            accuracy, precision, recall, F1 = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
             end_time = time()
-            line = '\t'.join([str(i), '0', str(x), str(y), str(z), '\t', str(round(end_time - start_time, 1))]+acc)
+            line = '\t'.join(['20', '1', str(x), str(y), str(z), str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
             print(line)
             file.write(line + '\n')
 
@@ -366,12 +379,13 @@ def experiments_nn(df):
             # for i in range(0,epoch_limit,1):
             #     score = neural_network(x_train, x_test, y_train, y_test, param, i)
             #     acc.append(str(round(score[0], 3)))
-            score = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
-            acc.append(str(round(score[0], 3)))
+            start_time = time()
+            accuracy, precision, recall, F1 = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
             end_time = time()
-            line = '\t'.join([str(i), '1', str(x), str(y), str(z), '\t', str(round(end_time - start_time, 1))]+acc)
+            line = '\t'.join(['20', '1', str(x), str(y), str(z), str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
             print(line)
             file.write(line + '\n')
+
 
         # for param in models2:
         #     x,y,z,a = param
@@ -397,72 +411,77 @@ def experiments_nn(df):
         #     print(line)
         #     file.write(line + '\n')
 
-def experiments(df):
+def experiments(df, norm=False):
     """
     Read data, train models and test models, save accuracy
     """
-    file = open('results2.txt', 'w')
+    if norm:
+        file = open('results_corrected_data_norm.txt', 'w')
+    else:
+        file = open('results_corrected_data.txt', 'w')
+
     file.write('model\tfraud_prop\tnormalized\ttime\taccuracy\tprecision\trecall\tF1\n')
 
-    for i in tqdm(range(0, 5, 1)):
+    for i in tqdm(range(1, 5, 1)):
+
         x_train, x_test, y_train, y_test = data_split(df, i)
 
-        # test with non-normalized data
-        # start_time = time()
-        # accuracy, precision, recall, F1 = logisticRegression(x_train, x_test, y_train, y_test)
-        # end_time = time()
-        # line = '\t'.join(['logReg', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
-        # file.write(line + '\n')
+        if not norm:
+            start_time = time()
+            accuracy, precision, recall, F1 = logisticRegression(x_train, x_test, y_train, y_test)
+            end_time = time()
+            line = '\t'.join(['logReg', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+            file.write(line + '\n')
 
-        start_time = time()
-        accuracy, precision, recall, F1 = gaussian(x_train, x_test, y_train, y_test)
-        end_time = time()
-        line = '\t'.join(['gaussian', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        file.write(line + '\n')
+            start_time = time()
+            accuracy, precision, recall, F1 = gaussian(x_train, x_test, y_train, y_test)
+            end_time = time()
+            line = '\t'.join(['gaussian', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+            file.write(line + '\n')
 
-        # start_time = time()
-        # accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
-        # end_time = time()
-        # line = '\t'.join(['decision_tree', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        # file.write(line + '\n')
-        #
-        # start_time = time()
-        # accuracy, precision, recall, F1 = support_vector_machine(x_train, x_test, y_train, y_test)
-        # end_time = time()
-        # line = '\t'.join(['svm', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        # file.write(line + '\n')
+            start_time = time()
+            accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
+            end_time = time()
+            line = '\t'.join(['decision_tree', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+            file.write(line + '\n')
 
+            start_time = time()
+            accuracy, precision, recall, F1 = support_vector_machine(x_train, x_test, y_train, y_test)
+            end_time = time()
+            line = '\t'.join(['svm', str(i), '0', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
+            file.write(line + '\n')
 
-        # test with normalized data0
+        if norm:
+            # test with normalized data
 
-        x_train = x_train / np.max(x_train) # Normalise data
-        x_test = x_train / np.max(x_test) # Normalise data
-        y_train = y_train / np.max(y_train) # Normalise data
-        y_test = y_train / np.max(y_test) # Normalise data
+            x_train = x_train / np.max(x_train) # Normalise data
+            x_test = x_train / np.max(x_test) # Normalise data
+            y_train = y_train / np.max(y_train) # Normalise data
+            y_test = y_train / np.max(y_test) # Normalise data
 
-        # start_time = time()
-        # accuracy, precision, recall, F1 = logisticRegression(x_train, x_test, y_train, y_test)
-        # end_time = time()
-        # line = '\t'.join(['logReg', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        # file.write(line + '\n')
+            start_time = time()
+            accuracy, precision, recall, F1 = logisticRegression(x_train, x_test, y_train, y_test)
+            end_time = time()
+            line = '\t'.join(['logReg', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+            file.write(line + '\n')
 
-        start_time = time()
-        accuracy, precision, recall, F1 = gaussian(x_train, x_test, y_train, y_test)
-        end_time = time()
-        line = '\t'.join(['gaussian', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        file.write(line + '\n')
+            start_time = time()
+            accuracy, precision, recall, F1 = gaussian(x_train, x_test, y_train, y_test)
+            end_time = time()
+            line = '\t'.join(['gaussian', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+            file.write(line + '\n')
 
-        # start_time = time()
-        # accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
-        # end_time = time()
-        # line = '\t'.join(['decision_tree', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        # file.write(line + '\n')
-        #
-        # start_time = time()
-        # accuracy, precision, recall, F1 = support_vector_machine(x_train, x_test, y_train, y_test)
-        # end_time = time()
-        # line = '\t'.join(['svm', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
-        # file.write(line + '\n')
+            start_time = time()
+            accuracy, precision, recall, F1 = decision_tree(x_train, x_test, y_train, y_test)
+            end_time = time()
+            line = '\t'.join(['decision_tree', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+            file.write(line + '\n')
+
+            start_time = time()
+            accuracy, precision, recall, F1 = support_vector_machine(x_train, x_test, y_train, y_test)
+            end_time = time()
+            line = '\t'.join(['svm', str(i), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1) ])
+            file.write(line + '\n')
 
 def plot(df):
     groups = df.groupby('isFraud')
@@ -489,21 +508,21 @@ def test_nn_simplified(i, df):
         (512,64,2)]
 
     file = open('results_simplified_nn'+ str(i)+ '.txt', 'w')
-    file.write('fraud_prop\tnormalized\tx\ty\tz\ttime\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t11\t12\t13\t14\t15\t16\t17\t18\t19\t20\n')
+    file.write('fraud_prop\tnormalized\tx\ty\tz\ttime\taccuracy\tprecision\trecall\tf1\n')
 
     x_train, x_test, y_train, y_test = data_split(df, i)
 
     #non normalized
-
-    for param in models1:
-        x,y,z = param
-        acc = []
-        start_time = time()
-        accuracy, precision, recall, F1 = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
-        end_time = time()
-        line = '\t'.join([str(i), '1', , str(x), str(y), str(z), str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
-        print(line)
-        file.write(line + '\n')
+    #
+    # for param in models1:
+    #     x,y,z = param
+    #     acc = []
+    #     start_time = time()
+    #     accuracy, precision, recall, F1 = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
+    #     end_time = time()
+    #     line = '\t'.join([str(i), '1',str(x), str(y), str(z), str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+    #     print(line)
+    #     file.write(line + '\n')
 
     # normalized
 
@@ -518,7 +537,7 @@ def test_nn_simplified(i, df):
         start_time = time()
         accuracy, precision, recall, F1 = neural_network(x_train, x_test, y_train, y_test, param, epoch_limit)
         end_time = time()
-        line = '\t'.join([str(i), '1', , str(x), str(y), str(z), str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
+        line = '\t'.join([str(i), '1', str(x), str(y), str(z), str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
         print(line)
         file.write(line + '\n')
 
@@ -546,6 +565,38 @@ def full_data_guass(df):
     line = '\t'.join(['gaussian', str(0), '1', str(round(end_time - start_time, 1)), str(accuracy), str(precision), str(recall), str(F1)] )
     file.write(line + '\n')
 
+def principal_components_analysis(df):
+    """performs PCA to create a visualization of the data"""
+
+    cleaned_data = df[['type','amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest', 'newbalanceDest', 'step', 'isFraud']]
+
+    pca = PCA(n_components=2)
+    principalComponents = pca.fit_transform(cleaned_data)
+
+    principalDf = pd.DataFrame(data = principalComponents
+             , columns = ['principal component 1', 'principal component 2'])
+
+    finalDf = pd.concat([principalDf, df[['isFraud']]], axis = 1)
+
+    fig = plt.figure(figsize = (10,10))
+    ax = fig.add_subplot(1,1,1)
+    ax.set_xlabel('Principal Component 1', fontsize = 20)
+    ax.set_ylabel('Principal Component 2', fontsize = 20)
+    ax.set_title('2 Component PCA', fontsize = 20)
+
+    targets = [1, 0]
+    colors = ['r', 'g']
+    for target, color in zip(targets,colors):
+        indicesToKeep = cleaned_data['isFraud'] == target
+        ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1']
+                   , finalDf.loc[indicesToKeep, 'principal component 2']
+                   , c = color
+                   , s = 25)
+    ax.legend(['fraud', 'legitimate'])
+    ax.grid()
+
+    plt.show()
+
 
 def main():
     """
@@ -570,13 +621,24 @@ def main():
     #experiments(df)
     #plot(df)
 
+    #principal_components_analysis(df)
+
     run = sys.argv[1]
 
     if run == 'g':
         full_data_guass(df)
 
+    if run == 'e':
+        experiments(df)
+
+    if run == 'f':
+        experiments(df, True)
+
+    if run == 'n':
+        experiments_nn(df)
+
     else:
-        test_nn_simplified(run, df) # need to run 0-5
+        test_nn_simplified(int(run), df) # need to run 0-5
 
 
 main()

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  26 NOV 2018 21:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  28 NOV 2018 14:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -710,26 +710,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <17.28> on input line 313.
 [30
 
-] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
-<amountxnewbalancedest.png, id=181, 462.528pt x 346.896pt>
-File: amountxnewbalancedest.png Graphic file (type png)
+] [31] [32] [33] [34] [35] [36] [37] [38] [39]
 
-<use amountxnewbalancedest.png>
-Package pdftex.def Info: amountxnewbalancedest.png used on input line 732.
-(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
+LaTeX Warning: Reference `fig:data2' on page 40 undefined on input line 730.
 
-<amountxtype.png, id=182, 462.528pt x 346.896pt>
-File: amountxtype.png Graphic file (type png)
- <use amountxtype.png>
-Package pdftex.def Info: amountxtype.png used on input line 738.
-(pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
- [43 <./amountxnewbalancedest.png>] [44 <./amountxtype.png>]
+[40] [41] [42] <pca1.png, id=181, 722.7pt x 489.9906pt>
+File: pca1.png Graphic file (type png)
+ <use pca1.png>
+Package pdftex.def Info: pca1.png used on input line 734.
+(pdftex.def)             Requested size: 433.62334pt x 293.99661pt.
+
+Overfull \hbox (14.45712pt too wide) in paragraph at lines 734--735
+ [][] 
+ []
+
+[43 <./pca1.png>]
 Chapter 5.
-[45
+[44
 
 ]
 Chapter 6.
-(./AstizThesis.bbl [46
+(./AstizThesis.bbl [45
 
 ]
 Missing character: There is no â in font ptmr7t!
@@ -753,18 +754,21 @@ Missing character: There is no ” in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- [47
+ [46
 
-]) [48] (./AstizThesis.aux)
+]) [47] (./AstizThesis.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14251 strings out of 492995
- 293932 string characters out of 6132704
- 330421 words of memory out of 5000000
- 17502 multiletter control sequences out of 15000+600000
+ 14246 strings out of 492995
+ 293753 string characters out of 6132704
+ 333410 words of memory out of 5000000
+ 17498 multiletter control sequences out of 15000+600000
  18745 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,16n,70p,1569b,953s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -777,10 +781,10 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
 17/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on AstizThesis.pdf (54 pages, 811487 bytes).
+Output written on AstizThesis.pdf (53 pages, 820170 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
+ 230 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
