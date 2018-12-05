@@ -6,7 +6,7 @@
 \contentsline {section}{\numberline {2.3}Other Fraud}{12}
 \contentsline {section}{\numberline {2.4}The Human Element}{16}
 \contentsline {subsection}{\numberline {2.4.1}Credit Card Fraud Detection with Game Theory}{16}
-\contentsline {subsection}{\numberline {2.4.2}Auditing with Game Theory}{20}
+\contentsline {subsection}{\numberline {2.4.2}Auditing with Game Theory}{19}
 \contentsline {chapter}{\numberline {3} Fraud in Context}{22}
 \contentsline {section}{\numberline {3.1} Interviews from Professionals}{22}
 \contentsline {section}{\numberline {3.2} Research Versus Reality}{28}
@@ -19,10 +19,12 @@
 \contentsline {subsection}{\numberline {4.2.3}Methods}{37}
 \contentsline {subsection}{\numberline {4.2.4}Results}{40}
 \contentsline {subsection}{\numberline {4.2.5}Discussion}{40}
-\contentsline {chapter}{\numberline {5}Further Applications}{44}
-\contentsline {section}{\numberline {5.1}Anomoly Detection}{44}
-\contentsline {subsection}{\numberline {5.1.1}Cell Phone Fraud}{44}
-\contentsline {subsection}{\numberline {5.1.2}Biometric Fraud}{44}
-\contentsline {subsection}{\numberline {5.1.3}Bioinformatics}{44}
-\contentsline {chapter}{\numberline {6}Conclusions}{45}
-\contentsline {chapter}{Bibliography}{46}
+\contentsline {chapter}{\numberline {5}Further Applications}{47}
+\contentsline {section}{\numberline {5.1}Anomaly-Based Intrusion Detection}{47}
+\contentsline {subsection}{\numberline {5.1.1}Biometric Anomaly Detection}{48}
+\contentsline {section}{\numberline {5.2}Hardware Health Monitoring}{48}
+\contentsline {section}{\numberline {5.3}Bioinformatics}{49}
+\contentsline {section}{\numberline {5.4}Cloud Computing}{49}
+\contentsline {chapter}{\numberline {6}Conclusions}{51}
+\contentsline {section}{\numberline {6.1}Future Work}{52}
+\contentsline {chapter}{Bibliography}{54}

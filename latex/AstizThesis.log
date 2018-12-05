@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  28 NOV 2018 14:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  3 DEC 2018 20:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -640,7 +640,7 @@ Chapter 1.
 <paymentMethods.png, id=26, 716.6775pt x 509.905pt>
 File: paymentMethods.png Graphic file (type png)
  <use paymentMethods.png>
-Package pdftex.def Info: paymentMethods.png used on input line 47.
+Package pdftex.def Info: paymentMethods.png used on input line 51.
 (pdftex.def)             Requested size: 358.33788pt x 254.95187pt.
 
 [1
@@ -649,102 +649,117 @@ Package pdftex.def Info: paymentMethods.png used on input line 47.
 ] <USA.png, id=32, 701.62125pt x 444.66125pt>
 File: USA.png Graphic file (type png)
  <use USA.png>
-Package pdftex.def Info: USA.png used on input line 57.
+Package pdftex.def Info: USA.png used on input line 61.
 (pdftex.def)             Requested size: 350.80975pt x 222.33008pt.
  [2 <./paymentMethods.png>] [3 <./USA.png>]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 76.
 [4
 
 ] [5] <chan_stolfo.png, id=47, 748.7975pt x 438.63875pt>
 File: chan_stolfo.png Graphic file (type png)
 
 <use chan_stolfo.png>
-Package pdftex.def Info: chan_stolfo.png used on input line 85.
+Package pdftex.def Info: chan_stolfo.png used on input line 89.
 (pdftex.def)             Requested size: 374.39783pt x 219.31883pt.
  [6 <./chan_stolfo.png>]
 <parenclitic.jpg, id=52, 604.2575pt x 441.65pt>
 File: parenclitic.jpg Graphic file (type jpg)
  <use parenclitic.jpg>
-Package pdftex.def Info: parenclitic.jpg used on input line 106.
+Package pdftex.def Info: parenclitic.jpg used on input line 110.
 (pdftex.def)             Requested size: 302.128pt x 220.82445pt.
  [7]
 <parenclitic2.png, id=57, 495.8525pt x 383.4325pt>
 File: parenclitic2.png Graphic file (type png)
  <use parenclitic2.png>
-Package pdftex.def Info: parenclitic2.png used on input line 115.
+Package pdftex.def Info: parenclitic2.png used on input line 119.
 (pdftex.def)             Requested size: 247.92564pt x 191.71577pt.
 
 [8 <./parenclitic.jpg>] [9 <./parenclitic2.png>] [10] [11] [12] [13]
 <bipartie.png, id=78, 610.28pt x 181.67876pt>
 File: bipartie.png Graphic file (type png)
  <use bipartie.png>
-Package pdftex.def Info: bipartie.png used on input line 152.
+Package pdftex.def Info: bipartie.png used on input line 156.
 (pdftex.def)             Requested size: 457.70888pt x 136.25871pt.
  [14 <./bipartie.png>] [15] [16] <gametheory.png, id=89, 319.1925pt x 223.83624
 pt>
 File: gametheory.png Graphic file (type png)
 
 <use gametheory.png>
-Package pdftex.def Info: gametheory.png used on input line 180.
+Package pdftex.def Info: gametheory.png used on input line 184.
 (pdftex.def)             Requested size: 319.19171pt x 223.8357pt.
- [17 <./gametheory.png>]
-<GameTheory2.png, id=94, 686.565pt x 529.98pt>
+ [17 <./gametheory.png>] [18]
+<GameTheory2.png, id=104, 686.565pt x 529.98pt>
 File: GameTheory2.png Graphic file (type png)
  <use GameTheory2.png>
-Package pdftex.def Info: GameTheory2.png used on input line 200.
+Package pdftex.def Info: GameTheory2.png used on input line 210.
 (pdftex.def)             Requested size: 686.56332pt x 529.97868pt.
- [18]
-[19 <./GameTheory2.png>] [20] [21]
+ [19 <./GameTheory2.png>] [20] [21]
 Chapter 3.
 [22
 
 ] [23] [24] [25] [26] [27] [28] [29]
 Chapter 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <24.88> on input line 313.
+(Font)              <24.88> on input line 318.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 313.
+(Font)              <20.74> on input line 318.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 313.
+(Font)              <17.28> on input line 318.
 [30
 
-] [31] [32] [33] [34] [35] [36] [37] [38] [39]
-
-LaTeX Warning: Reference `fig:data2' on page 40 undefined on input line 730.
-
-[40] [41] [42] <pca1.png, id=181, 722.7pt x 489.9906pt>
-File: pca1.png Graphic file (type png)
- <use pca1.png>
-Package pdftex.def Info: pca1.png used on input line 734.
+] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
+<pca2.png, id=184, 722.7pt x 489.9906pt>
+File: pca2.png Graphic file (type png)
+ <use pca2.png>
+Package pdftex.def Info: pca2.png used on input line 737.
 (pdftex.def)             Requested size: 433.62334pt x 293.99661pt.
 
-Overfull \hbox (14.45712pt too wide) in paragraph at lines 734--735
+Overfull \hbox (14.45712pt too wide) in paragraph at lines 737--738
  [][] 
  []
 
-[43 <./pca1.png>]
+[43 <./pca2.png>] <tpr.png, id=190, 578.16pt x 361.35pt>
+File: tpr.png Graphic file (type png)
+ <use tpr.png>
+Package pdftex.def Info: tpr.png used on input line 749.
+(pdftex.def)             Requested size: 346.89867pt x 216.81168pt.
+
+<fpr.png, id=191, 578.16pt x 361.35pt>
+File: fpr.png Graphic file (type png)
+ <use fpr.png>
+Package pdftex.def Info: fpr.png used on input line 755.
+(pdftex.def)             Requested size: 346.89867pt x 216.81168pt.
+ [44] [45 <./tpr.png> <./fpr.png>] [46]
 Chapter 5.
-[44
+[47
 
-]
+] [48] [49] [50]
 Chapter 6.
-(./AstizThesis.bbl [45
+[51
+
+] [52] (./AstizThesis.bbl [53]
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ¢ in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ¢ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Å in font ptmr7t!
+Missing character: There is no Ô in font ptmr7t!
+Missing character: There is no ø in font ptmr7t!
+Missing character: There is no Ω in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ì in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ì in font ptmr7t!
+ [54
 
 ]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ¢ in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ¢ in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ì in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ì in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ì in font ptmr7t!
@@ -754,37 +769,35 @@ Missing character: There is no î in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ì in font ptmr7t!
- [46
-
-]) [47] (./AstizThesis.aux)
-
-LaTeX Warning: There were undefined references.
-
+ [55]) [56] (./AstizThesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14246 strings out of 492995
- 293753 string characters out of 6132704
- 333410 words of memory out of 5000000
- 17498 multiletter control sequences out of 15000+600000
+ 14264 strings out of 492995
+ 293949 string characters out of 6132704
+ 331453 words of memory out of 5000000
+ 17514 multiletter control sequences out of 15000+600000
  18745 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,16n,70p,1569b,953s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/te
-xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texl
-ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
-017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-17/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-d
-ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/
-type1/urw/times/utmri8a.pfb>
-Output written on AstizThesis.pdf (53 pages, 820170 bytes).
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/tex
+live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texli
+ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2
+017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/f
+onts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
+/urw/times/utmri8a.pfb>
+Output written on AstizThesis.pdf (62 pages, 978719 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
- 148 compressed objects within 2 object streams
+ 275 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 58 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 

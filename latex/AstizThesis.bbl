@@ -9,6 +9,17 @@
 \bibitem{USA}
 {• U.S. payment card fraud losses by type 2018 | Statistic}.
 
+\bibitem{Ahmed2005}
+Ahmed Awad~E. Ahmed and Issa Traore.
+\newblock {Anomaly Intrusion Detection based on Biometrics}.
+\newblock Technical report, IEEE, 2005.
+
+\bibitem{Baesens}
+Bart Baesens, Véronique {Van Vlasselaer}, Wouter Verbeke, and V�eronique
+  van Vlasselaer.
+\newblock {\em {Fraud analytics using descriptive, predictive, and social
+  network techniques : a guide to data science for fraud detection}}.
+
 \bibitem{Boccaletti}
 Stefano Boccaletti.
 \newblock {Complex Network Theory: introduction and applications}.
@@ -22,6 +33,12 @@ Philip~K Chan and Salvatore~J Stolfo.
 \newblock {Toward Scalable Learning with Non-uniform Class and Cost
   Distributions: A Case Study in Credit Card Fraud Detection}.
 \newblock Technical report.
+
+\bibitem{Chandola2012}
+V.~Chandola, A.~Banerjee, and V.~Kumar.
+\newblock {Anomaly Detection for Discrete Sequences: A Survey}.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  24(5):823--839, may 2012.
 
 \bibitem{Fawcett1996}
 Tom Fawcett and Foster Provost.
@@ -50,6 +67,20 @@ Johan Perols.
 \newblock {\em AUDITING: A Journal of Practice {\&} Theory}, 30(2):19--50, may
   2011.
 
+\bibitem{Schwabacher2009}
+Mark Schwabacher, Nikunj Oza, and Bryan Matthews.
+\newblock {Unsupervised Anomaly Detection for Liquid-Fueled Rocket Propulsion
+  Health Monitoring}.
+\newblock {\em Journal of Aerospace Computing, Information, and Communication},
+  6(7):464--482, jul 2009.
+
+\bibitem{SongFu2011}
+{Song Fu}.
+\newblock {Performance Metric Selection for Autonomic Anomaly Detection on
+  Cloud Computing Systems}.
+\newblock In {\em 2011 IEEE Global Telecommunications Conference - GLOBECOM
+  2011}, pages 1--5. IEEE, dec 2011.
+
 \bibitem{Stolfo1997}
 Salvatore~J Stolfo, David~W Fan, Wenke Lee, Andreas~L Prodromidis, and Philip~K
   Chan.
@@ -75,6 +106,11 @@ Vishal Vatsa, Shamik Sural, and A.~K. Majumdar.
   Detection}.
 \newblock {\em International Journal of Information Security and Privacy},
   1(3):26--46, jul 2007.
+
+\bibitem{Wang2004}
+Ke~Wang and Salvatore~J. Stolfo.
+\newblock {Anomalous Payload-Based Network Intrusion Detection}.
+\newblock pages 203--222. Springer, Berlin, Heidelberg, 2004.
 
 \bibitem{Wang2018}
 Mac Wang.

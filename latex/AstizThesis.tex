@@ -10,7 +10,7 @@
 
 \bibliographystyle{plain}
 
-\title {Combating Fraud By Leveraging Machine Learning and Human Behavior}
+\title {Combating Fraud By Leveraging Machine Learning}
 
 \author {Casey Astiz}
 \adviser {Professor Michael Linderman}
@@ -21,7 +21,11 @@
 \pagenumbering{roman}
 
 \begin{abstract}
-I am writing about fraud and how to detect it! Wooh!
+
+Credit card fraud in the United States has been on the rise, reaching over \$8 million in 2018 \cite{USA}. The majority of these are card not present transactions, which have become more popular with the increasing options for online transactions. While these transactions have large dollar amounts, they are not frequent, as they only make up around 1-3\% of transactions. Therefore, it is difficult to create unbiased classifiers for fraud detection systems. In this thesis, I summarize related works on the topic of anomaly detection, feature engineering for fraud, and game theory. I interview practitioners in the fraud detection space to compare their knowledge and day to day methods with research standards. I lastly implement my own fraud detection system using a synthetic mobile payment transaction dataset, and discuss other applications for anomaly detection. From my experiments, I find decision trees to be the most effective classifier given my dataset, which corresponds to the practitioners' reliance on rule based systems.
+
+
+
 \end{abstract}
 
 \begin{acknowledgements}
@@ -169,7 +173,7 @@ Credit card fraud detection, while automated by machines, benefits from the inge
 
 % Gametheory 1 paper
  
-In a paper by Vasta et al, a rule based system is combined with a Game-theory \cite{Vatsa2007}. With credit card fraud, the fraudster and fraud detecter have conflicting motives, each trying to maximize their own payoff through a multistage game between the two players. Here, fraudsters are considered to be rational adversaries, meaning that fraudsters are attempting to maximize their gain without being detected. Companies are trying to minimize their losses to fraud, and therefore the game between the two parties becomes a maximization-minimization problem. By using game theory, companies can start to predict future attacks while also providing possible courses of action to defend against them.
+In a paper by Vasta et al, a rule based system is combined with Game-theory \cite{Vatsa2007}. With credit card fraud, the fraudster and fraud detecter have conflicting motives, each trying to maximize their own payoff through a multistage game between the two players. Here, fraudsters are considered to be rational adversaries, meaning that fraudsters are attempting to maximize their gain without being detected. Companies are trying to minimize their losses to fraud, and therefore the game between the two parties becomes a maximization-minimization problem. By using game theory, companies can start to predict future attacks while also providing possible courses of action to defend against them.
  
 Credit card fraud detection is not like a traditional game. With credit card fraud, an attacker can make multiple moves insofar as the fraudster can continue to commit fraud until it is caught or sees some action from the fraud detection system. In addition, the attacker can act without time constraints; a fraudster can calculate their move for as long as possible. Lastly, the possible set of moves in this game is not well defined because of the adaptive nature of fraud and fraud detection. This is very similar to database intrusion detection as well. 
 
@@ -189,12 +193,16 @@ A transaction will go through two tiers before a final decision is made: a rule 
 
 Panigrahi et al similarly combine game theory with a rule based filter to create a fraud detection system. This system varies from Vasta et al's because it has 4 distinct phases. The system begins with a rule based filter, similar to those perviously described. Rules include an address check and outlier detection, where the system checks how much a transaction varies from a user profile as well as general rules. From this rule based system, transactions are put into three categories: fraud, non-fraud, and suspicious \cite{Panigrahi2009}. 
 
-To combine these rules, Panigrahi et al use Dempster-Shafer theory, followed by a transaction history database, and a Bayesian learner \cite{Panigrahi2009}. The Dempster-Shafer theory assigns a fraud probability to an event based on the classification the transaction has from the rule based system. For example, if a transaction is classified as non-fraud in the address portion, it will have 0 added to its overall fraud probability prediction. Those results are then fed to a transaction history database, which compares the current transaction with the user's past transactions as well as a generic database of fraud. 
+To combine these rules, Panigrahi et al use Dempster-Shafer theory, followed by a transaction history database, and a Bayesian learner \cite{Panigrahi2009}. The Dempster-Shafer theory assigns a fraud probability to an event based on the classification the transaction has from the rule based system. Dempster-Shafer theory can be found below in Equation~\ref{eq:DST}.  For example, if a transaction is classified as non-fraud in the address portion, it will have 0 added to its overall fraud probability prediction. Those results are then fed to a transaction history database, which compares the current transaction with the user's past transactions as well as a generic database of fraud. 
+
+\begin{equation}
+\label{eq:DST}
+m(h) = m_{1}(h)\oplus m_{2}(h) = {\frac {\sum _{x\cap y=h}m_{1}(x) * m_{2}(y)} {1 - \sum _{x\cap y=\emptyset }m_{1}(x) * m_{2}(y) }}
+\end{equation}
+
 
 Information about how much the transaction is deviating from normal behavior in 4 mutually exclusive cases is then sent to the Bayesian learner. The Bayesian learner then calculates a suspicion score, which is combined with the earlier suspicion score using Dempster-Shafer again. Based on a threshold, a transaction is then classified as fraud or non-fraud. A visualization of this system can be seen in Figure~\ref{fig:gametheory2}. Through their experiements, Panigrahi et al find that 0.3 and 0.7 are the most accurate lower and upper bounds, respectively, and that their system increased the true positive rate by about 15-20\% \cite{Panigrahi2009}. 
 
-
-%% add equation for Dempster Shafer
 
 \begin{figure} \centering
   \includegraphics[width=\textwidth, scale=1]{GameTheory2.png}
@@ -273,14 +281,9 @@ Lastly, humans will most likely always have to be part of the process because of
 \label{sec:impl}
 
 
-%%% TODO IN THIS CHAPTER: 
-% check that sum statistics are correct
-% fill out the results section and tables
-% write discussion section
-
 To understand further the complexity of creating a highly accurate fraud detection system, I implemented my own system based on the approaches discussed in Chapter~\ref{sec:background}. I constructed a series of machine learning models, and reported accuracy and F1 scores based on different proportions of fraud to non-fraud data. For all experimentation, I used open source tools built for Python. I will discuss the model and the experiment in depth in the sections below. The overall implementation is broken down into subsections under Experiment: Hypothesis, Data, Methods, Results, and Discussion. 
 
-\section{Model} %% Add in any extra models that I add after 10/29
+\section{Model} 
 
 For this project, I will be implementing several different machine learning models. I will be following 2011 Perols and will be comparing the performance of several popular classification models. To start, I will be implementing logistic regression.
 
@@ -412,7 +415,7 @@ The data used from this project was obtained from Kaggle.com \cite{paysim}. I us
 
 \subsubsection{Limitations}
 
-This project was limited by the dataset I had access to. In the real world, a transaction would include much more information that is not available with the fields of Paysim. Banks and credit card companies for example have the ability to see exactly where a transaction took place. As discussed in Chapter~\ref{sec:context}, banks and companies have strict policies they have to follow in regards to sharing user data. Therefore, there are no readily available datasets online. For reference, in the paper by Chan et al referenced above, their dataset had 30 fields per transaction \cite{Chan}. Some banks pull information from their own banking app on a user's phone and compare the location of the user's phone to the location of the past transaction. With credit card information, companies can detect fraud based on if transactions are occurring in two places very far away from each other. Since I do not have any sort of location information, I cannot leverage this type of rule based fraud detection. In addition, I do not have access to the name of the business a transaction is taking place at. By building out a user profile that includes frequent locations and businesses the user goes to, a detection system can detect if a person is shopping at a store that is out of the norm and calculate the likelihood that this is fraud. 
+This project was limited by the dataset I had access to. In the real world, a transaction would include much more information that is not available with the fields of Paysim. Banks and credit card companies for example have the ability to see exactly where a transaction took place. As discussed in Chapter~\ref{sec:context}, banks and companies have strict policies they have to follow in regards to sharing user data. Therefore, there are no readily available datasets online. For reference, in the paper by Chan et al referenced above, their dataset had 30 fields per transaction \cite{Chan}. Some banks pull information from their own banking app on a user's phone and compare the location of the user's phone to the location of the past transaction. With credit card information, companies can detect fraud based on if transactions are occurring in two places very far away from each other. Since I do not have any sort of location information, I cannot leverage this type of rule based fraud detection. In addition, I do not have access to the name of the business a transaction is taking place at. By building out a user profile that includes frequent locations and businesses the user goes to, a detection system can detect if a person is shopping at a store that is out of the norm and calculate the likelihood that this is fraud. Lastly, there are essentially no repeated users in this dataset, eliminating the possibility of creating features based on user profiles.
 
 
 \begin{table}[htbp] \centering
@@ -557,8 +560,6 @@ The other two elements of data manipulation I test are fraud to non-fraud data p
 Normalized(transaction) = \frac{( transaction - min(transaction))}{  (max(transaction) - min(transaction))}
 \end{equation}
 
-Leveraging this information, I have created three additional fields: average transaction value for a user, time since last transaction, and whether a user has interacted with the destination user before. By calculating the average transaction amount, it may be more obvious when a fraudulent transaction that is either a lot higher or a lot lower than average occurs. Time since the last transaction is meant to see if a user has made many transactions in a short period of time. Although I do not have location data, it is still unlikely for a user to make a large amount of transactions in one hour. Lastly, I included an indicator for whether a user has interacted with the other user in the transaction before. It may be a sign of fraud if a user is interacting with a new user after many transactions with the same users. I decided on these three features because of human intuition, and what I think is possible between users. This is a large part of machine learning, as without the correct features, a system may not be able to classify effectively.
-
 Arguably the most important element of a machine learning experiment is deciding how to quantify a successful algorithm. The most common method of measuring whether a model is improving or worsening is accuracy. As discussed above, this is helpful in more balanced class situations, but is a little biased when working on anomaly detection. Because of this, I include precision, recall and an F1 score of each model in addition to the accuracy. The equations for precision, recall and F1 are shown in equations ~\ref{eq:precision}, ~\ref{eq:recall}, and ~\ref{eq:F1}, respectively. 
 
 \begin{equation}
@@ -583,8 +584,7 @@ As seen in the equations above, these measures are focused more so on the propor
 
 \subsection{Results}
 
-The most successful models and their metrics are shown in the following tables. For trials with non-normalized data, refer to Table ~\ref{sec:non_norm_results}. Normalized results can be found in Table ~\ref{sec:norm_results}. 
-
+The most successful models and their metrics are shown in the following tables. For trials with non-normalized data, refer to Table~\ref{sec:non_norm_results}. Normalized results can be found in Table~\ref{sec:norm_results}. 
 
 \begin{table}[htbp]\centering
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
@@ -595,7 +595,7 @@ The most successful models and their metrics are shown in the following tables. 
 \scalebox{1} {
 \begin{tabular}{l@{\hskip 0.7in} c c c c} \addlinespace\hline\hline
 \addlinespace
-Method&Accuracy& Precision&Recall& F1 Score\\
+Method&Accuracy& Precision&Recall& F1 Score \\
 \hline
 
 \addlinespace
@@ -609,35 +609,35 @@ Gaussian	       & 0.952  		&	0.532	& 0.015 	&	0.029 	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{50/50 data distribution}}\\ 
-Logistic Regression	            &	0.905	&	0.899	&	0.911	&	0.905	\\
-Neural Network 	 &               0.506 &	1 &	0.506	& 0.672 	\\
-Decision Tree	            &	0.992		&	0.994	&	0.989	&	0.992	\\
-SVM	        &	0.501		&	1	&	0.506	&	0.672	\\
-Gaussian	        &	0.673		&	0.855	&	0.631	&	0.726	\\
+Logistic Regression	            &	0.910	&	0.002	&	0.902	&	0.004	\\
+Neural Network 	 &               0.0002 &	0.0002	& 1	& 0.0004	\\
+Decision Tree	            &	0.989		&	0.017	&	0.995	&	0.033	\\
+SVM	        &	0.002		&	0.0002	&	1	&	0.0004	\\
+Gaussian	        &	0.491		&	0.0003	&	0.856	&	0.0006	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{66.6/33.3 data distribution}}\\
 Logistic Regression	            &	0.910	&	0.854	&	0.885	&	0.869	\\
-Neural Network 	                &	0.649		&	0	&	0	&	0	\\
-Decision Tree	            &	0.994		&	0.994	&	0.990	&	0.992	\\
-SVM	        &	0.351		&	1	&	0.351	&	0.519	\\
-Gaussian	        &	0.623		&	0.858	&	0.479	&	0.615	\\
+Neural Network 	                &	0.999 &	0 &	0& 	0	\\
+Decision Tree	            &	0.993 &	0.029 &	0.994 &	0.055	\\
+SVM	        &	0.002	& 0.0002	 & 1 &	0.0004	\\
+Gaussian	        &	0.509 &	0.0003 &	0.857	& 0.0007	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{75/25 data distribution}}\\
-Logistic Regression	            &	0.931	&	0.839	&	0.880	&	0.860	\\
-Neural Network 	                &	0.750		&	0	&	0	&	0	\\
-Decision Tree	            &	0.993		&	0.994	&	0.977	&	0.986	\\
-SVM	        &	0.251		&	1	&	0.250	&	0.401	\\
-Gaussian	        &	0.584		&	0.883	&	0.364	&	0.515	\\
+Logistic Regression	            &	0.956 &	0.004 &	0.841 &	0.007 \\
+Neural Network 	                &	0.999 &	0	& 0 &	0	\\
+Decision Tree	            &	0.995 &	0.036 &	0.997 &	0.070	\\
+SVM	        &	0.002 &	0.0002 &	1	& 0.0004	\\
+Gaussian	        &	0.505 &	0.0003 &	0.882 &	0.0007	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{80/20 data distribution}}\\
-Logistic Regression	            &	0.938	&	0.820	&	0.880	&	0.850	\\
-Neural Network 	                &	0.792		&	0	&	0	&	0	\\
-Decision Tree	            &	0.994		&	0.984	&	0.990	&	0.986	\\
-SVM	        &	0.210		&	1	&	0.210	&	0.344	\\
-Gaussian	        &	0.722		&	0.605	&	0.391	&	0.475	\\
+Logistic Regression	            &	0.971 &	0.005 &	0.809 &	0.011	\\
+Neural Network 	                &	0.999		&	0	&	0	&	0	\\
+Decision Tree	            &	0.996 &	0.048 &	0.981 &	0.091	\\
+SVM	        &	0.002 &	0.0002 &	1	& 0.0004\\
+Gaussian	        &	0.738 &	0.0005 &	0.617 &	0.001	\\
 
 
 
@@ -676,34 +676,34 @@ Gaussian	        &	0.999		&	0	&	0	&	0	\\
 \multicolumn{5}{l}{\textit{50/50 data distribution }}\\
 Logistic Regression	            &	0.501	&	0	&	0	&	0	\\
 Neural Network 	                &	0.501		&	0	&	0	&	0	\\
-Decision Tree	            &	0.499		&	1	&	0.499	&	0.666	\\
-SVM	        &	0.538		&	0.498	&	0.541	&	0.519	\\
-Gaussian	        &	0.499		&	1	&	0.499	&	0.666	\\
+Decision Tree	            &	0.499		&0.499	&	1	&	0.666	\\
+SVM	        &	0.534		&	0.536	&	0.499	&	0.516	\\
+Gaussian	        &	0.499		&	0.499 & 1			&	0.666	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{66.6/33.3 data distribution }}\\
 Logistic Regression	            &	0.670	&	0	&	0	&	0	\\
 Neural Network 	                &	0.670		&	0	&	0	&	0	\\
-Decision Tree	            &	0.330		&	1	&	0.330	&	0.497	\\
-SVM	        &	0.330		&	1	&	0.330	&	0.497	\\
-Gaussian	        &	0.330		&	1	&	0.330	&	0.497	\\
+Decision Tree	            &	0.330		&		0.330 & 1	&	0.497	\\
+SVM	        &	0.330		&	0.330	 & 1 &	0.497	\\
+Gaussian	        &	0.330		&	0.330 & 1	&	0.497	\\
 
 
 \addlinespace
 \multicolumn{5}{l}{\textit{75/25}}\\
 Logistic Regression	            &	0.750	&	0	&	0	&	0	\\
 Neural Network 	                &	0.750		&	0	&	0	&	0	\\
-Decision Tree	            &	0.250		&	1	&	0.250	&	0.400	\\
-SVM	        &	0.250		&	1	&	0.250	&	0.400	\\
-Gaussian	        &	0.250		&	1	&	0.250	&	0.400	\\
+Decision Tree	            &	0.250	&	0.250	 & 1 &	0.400	\\
+SVM	        &	0.250		&	0.250 & 1	&	0.400	\\
+Gaussian	        &	0.250		&	0.250 & 1	&	0.400	\\
 
 \addlinespace
 \multicolumn{5}{l}{\textit{80/20}}\\
 Logistic Regression	            &	0.801	&	0	&	0	&	0	\\
 Neural Network 	                &	0.801		&	0	&	0	&	0	\\
-Decision Tree	            &	0.801	&	0	&	0	&	0	\\
+Decision Tree	            &	0.199	&	0.199	&	1	&	0.332	\\
 SVM	        &	0.801	&	0	&	0	&	0	\\
-Gaussian	        &	0.167		&	0.500	&	0.120	&	0.192	\\
+Gaussian	        &	0.167		&		0.120 & 0.500	&	0.192	\\
 
 
 
@@ -713,6 +713,8 @@ Gaussian	        &	0.167		&	0.500	&	0.120	&	0.192	\\
 \end{table} 
 
 
+
+Decision trees performed the best in almost all trials, as measured by the F1 score and accuracy. On the flip side, SVM's performed poorly. As a caveat, the neural network results are the best of the results found in experimenting with different architectures. In general, the neural networks biased towards the same results regardless of architecture or training epochs. In Table~\ref{sec:norm_results}, I normalized the data, then performed the experiments. This is an approach used to eliminate bias due to magnitude of a feature and to put all the features on similar scales. In these experiments, however, normalizing the data lead to lower results for almost every model, as well as heavy biases in the system. The only model to improve was the SVM's, which became less biased towards predicting only fraud.
 
 
 %- normalizing data actually got a slight increase in the accuracy by .01 across the board
@@ -726,15 +728,35 @@ Gaussian	        &	0.167		&	0.500	&	0.120	&	0.192	\\
 \subsection{Discussion}
 
 It is possible that the data divisibility impacted the results of the paper. Classifiers perform best when the data is easily dividable between the data classes. When the data between classes are mixed, then it is more difficult to fit a classifier that is accurate while also not overfitting to the data. If the model overfits, then new examples are likely to be classified incorrectly. 
-% fix this
-Figure~\ref{fig:data1} is an example of one dimension of the data: amount of transaction by the new balance of the destination account. Here, the fraudulent transactions seem somewhat clumped, but not easily divisible from the authentic transactions. However, when looking at the distribution in Figure~\ref{fig:data2}, fraudulent transactions seem much more divisible, as they make up the entirety of the cash-out transactions and some of the transfers. If a classifier predicts all cash-out transactions to be fraud, in this case, it would be correct. 
 
+In Figure~\ref{fig:data1}, two principal components of the data is shown, with fraudulent transactions depicted in red. This figure shows that the classifiers may have had difficulty identifying fraud because of the lack of separability in this data. There seems to be a grouping of fraudulent transactions on the left section of this graph, but these are mixed in with legitimate transactions. This means that there is not a clear line a classifier could draw to divide fraudulent and legitimate transactions.
 
 \begin{figure} \centering
-  \includegraphics[scale=.6]{pca1.png}
+  \includegraphics[scale=.6]{pca2.png}
   \caption{Principal Components Analysis of Data}
   \label{fig:data1}
 \end{figure}
+
+Based on the results in Table~\ref{sec:non_norm_results}, decision trees perform the best in almost all the tests. Using the non-normalized data, training with a 1/3 proportion of fraudulent data has created the best results, with a 50/50 data proportion being a close second. In many of the interviews discussed in Chapter 3, practitioners discussed rule based systems as popular fraud detection systems. Rule based systems are very similar to decision trees, and can be implemented as decision trees. These results imply that these rule based systems are more effective than I originally hypothesized. 
+
+While most models performed well in these trials, the SVM's consistently performed poorly in all trials. I hypothesize this may be because of the poor separability of the data. SVM's attempt to divide the data with the largest margin of error possible. If there is no clear division, the SVM cannot make an accurate division. In addition, when changing the data proportions, the SVM may have found a division between fraud and legitimate transactions that was present in the training data, but not in the testing data, which represented the original dataset. This is further evidenced by the high recall of most of the SVM runs, showing that there were no false positives for any of the SVM runs with training data manipulation. SVM's in all of these cases were predicting almost all fraudulent, biasing heavily towards the minority class. When the data was normalized, the SVM's became less skewed, but most runs still biased towards predicting fraud.
+
+While precision, recall and F1 scores can be used to determine the strength of a system, the true positive rate and false positive rate is also helpful in analyzing a system. Figure~\ref{fig:tpr} shows the true positive rates as the fraud data proportion increases in the non-normalized run. Each of the models had increases in true positive rate as the data proportion increased, though by different magnitudes. The most drastic increase was in the neural network, where the model biased towards predicting fraud. As seem in Figure~\ref{fig:fpr}, the false positive rates also tend to increase as the true positive rates increase. To return to related work, if a company has low overhead, increased false positives are not as expensive as if a company has very high overhead \cite{Chan}. Therefore, the increased sensitivity to fraud is worthwhile. In these results, the decision tree has both high true positive rates and low false positive rates, reinforcing the success of the model.   
+
+\begin{figure} \centering
+  \includegraphics[scale=.6]{tpr.png}
+  \caption{True Positive Rates by Data Proportions}
+  \label{fig:tpr}
+\end{figure}
+
+\begin{figure} \centering
+  \includegraphics[scale=.6]{fpr.png}
+  \caption{False Positive Rates by Data Proportions}
+  \label{fig:fpr}
+\end{figure}
+
+Through these experiments, I have found decision trees to be the most successful in classifying fraudulent transactions in this setting. My initial hypothesis was incorrect; neural networks did not perform well in this setting, and easily biased towards predicting one class or another, regardless of the architecture. A lesson from this is to always choose a classifier based on the problem at hand, not by the supposed complexity of a model. In addition, I found false positive and true positive rates to be helpful in analyzing the success of the model.
+
 
 
 
@@ -743,18 +765,53 @@ Figure~\ref{fig:data1} is an example of one dimension of the data: amount of tra
 \chapter{Further Applications}
 \label{sec:future}
 
+The challenge in credit card fraud detection comes from the lack of examples of fraudulent behavior; this is because fraud is an anomaly. The work done in this thesis is framed by previous anomaly detection research as well as credit card fraud specific research. Because of this, the implementations of credit card fraud detection systems can be applied to other fields of anomaly detection with slight alterations. In this chapter, I describe other fields in which anomaly detection techniques are applied.
 
-\section{Anomoly Detection}
+\section{Anomaly-Based Intrusion Detection}
 
-\subsection{Cell Phone Fraud}
+Anomaly detection techniques can be used to find instances of intrusion attempts into a system, and have been leveraged in the network space. Intrusion detection systems monitor a network or system for malicious activity, and often use machine learning to detect these malicious traffic from good or policy following traffic. Wang and Stolfo analyze payloads in order to detect anomalies \cite{Wang2004}. This system used unsupervised learning to determine the distribution of byte frequency of a single application payload between a single host and port. This distribution and standard deviation is learned during a training phase. They then use Mahalanobis distance to calculate simiarlity of new data against the profiles computed during the training period. If a new input exceeds the threshold they set, then an anomaly is detected. While testing on 1999 DARPA IDS data, the system achieves an almost 100\% accuracy with a 0.1\% false positive rate \cite{Wang2004}. In this case, anomaly detection can be leveraged using unsupervised learning to define a user profile and compare against that.    
 
-\subsection{Biometric Fraud}
 
-\subsection{Bioinformatics}
+\subsection{Biometric Anomaly Detection}
+
+In a study by Ahmed and Traore, biometrics are used to detect system intrusion at the user level \cite{Ahmed2005}. This system uses behavioral biometrics, which include patterns of a person's physical movements, to identify a user. This is different than physiological biometrics, in which a user is identified by a feature such as a fingerprint or iris. In the enrollment phase of this model, the client machine runs software that monitors a user's mouse movement and keystroke data. This information is then feed to a server, which computes a profile that is used for behavior comparison in the verification stage. Using the mouse and keystroke data, Ahmed and Traore create dynamic signatures using neural networks and statistics, which capture features that define a user uniquely. During the verification stage, the sum of the absolute difference between the expected user's profile signature and the current user, and a decision is made based on a predefined threshold.
+
+\section{Hardware Health Monitoring}
+
+One common use for anomaly detection is in monitoring health of a system, including the health of hardware. In the Aerospace field, anomaly detection has been use to monitor the health of liquid-fueled rocket propulsion testbeds. Schwabacher et al used four different algorithms to test on historical data from the Space Shuttle Main Engine and an experimental rocket engine at NASA Stennis Space Center \cite{Schwabacher2009}. The four approaches used are as follows. The first approach defines an anomaly as a point that is far from its closest neighbor, using a nearest neighbor to calculate each point's nearest neighbor. In the next algorithm called the Inductive Monitoring System, system clusters are learned from training data, then distance to the nearest cluster is used to determine to measure its anomalousness. The third system they use is similar to a decision tree classifier, as it learns rules from the training data and marks a point as anomalous if they violate these rules. The last algorithm the authors implement is an SVM. These methods all correspond to those used in the credit card fraud detection, and have similar benefits of reducing the number of human experts needed to analyze spacecraft sensor data. 
+
+
+\section{Bioinformatics}
+
+Bioinformatics is a field of study concerned with analyzing complex biological data, in particular genetic codes. There is a lot of existing research into detecting anomalies in discrete and symbolic sequences, as surveyed by Chandola et al \cite{Chandola2012}. There are a couple different methods that are commonly used for this bioinformatic anomaly detection problem. The first way is unsupervised, where anomalous sequences are detected from an unlabeled database of sequences. The other version is called semi-supervised. This involves training a model on a database that is assumed to be all normal sequences, then testing to see how different the example sequence is from the training examples. This model is semi-supervised because all examples are assumed to be normal, but no labels are used. Here, a popular method is also to use k-nearest neighbor and clustering, similar to the methods discussed above. Anomaly detection in bioinformatics is yet another field where similar anomaly detection methods can be leveraged.
+
+
+\section{Cloud Computing}
+
+Cloud computing systems have become more complex and popular in the recent years. Because of this increased use, dependability assurance has become a very important issue in system design and management. Song Fu creates a framework to automatically detect anomalies in cloud computing  \cite{SongFu2011}. In this framework, principal component analysis is applied to a number of performance related metrics or features. This allows for a reduced metric dimension, but keeps the variance in the health related data. This reduced space is then fed through a semi-supervised decision tree classifier, which further reduces the dimensionality and identifies the anomalies \cite{SongFu2011}. This is a very similar method to the decision tree classifier built in Chapter 4. Even though cloud computing and credit card fraud are very different topics, almost identical frameworks can be used to solve both problems.
+
 
 \pagebreak
 \chapter{Conclusions}
 \label{sec:conclusion}
+
+Credit card fraud is growing with the advent of new payment methods and online transactions. While not everyone falls victim to these attacks, there are negative impacts to all from fraudulent transactions. These transactions directly impact users through the redistribution of costs from company to user. Increased fraud can also decrease trust in the overall financial system, which can lead to chaos. There is also a negative societal impact, as money gained from fraudulent transactions are used for illicit purposes. Because of these reasons, it is worth building effective fraud detection systems.
+
+Fraud is particularly hard to detect because it is an anomaly, and only makes up about 1-3\% of transactions. There are not many examples of the fraudulent class in order to train classifiers with. There are several ways to deal with this, such as fitting probability distributions to the data or changing the proportion of the training dataset. As in related works and the results in Chapter 4, this method helps build classifiers that are more sensitive to fraudulent transactions, but may increase false positive rates simultaneously.  With low overhead costs, this trade off is worthwhile, and will decrease overall costs from fraud. If overhead is high, costs may not decrease and could possibly increase due to higher sensitivity to fraud. 
+
+After performing a series of experiments using synthetic mobile money data, my results indicate that decision trees perform the best for fraud detection. The decision tree model performed the best in all trials in the non-normalized data experiments, and tied with the Gaussian model in the normalized experiments. This implies that rule based systems, which can be implemented as decision trees, are probably better suited for the fraud detection problem than I hypothesized. In my second set of experiments, I found normalizing the data mostly decreased the results from almost all models except the SVM. Normalizing seemed to cause heavy bias towards predicting fraud, leading to high recall but low accuracy. In other cases, normalizing the data led to predicting no fraud, with zero true positives detected in the data. 
+
+\section{Future Work}
+
+In this thesis, I was somewhat limited by the data I had access to. I would have liked to have more realistic credit card transaction data that included repeated users as well as location information. As future work, I would have liked to try some feature engineering based on historical information about a user. For example, I would have created a feature based on whether or not a transaction was above a user's average transaction size. This would have caught when transactions were abnormally high for a user, indicating fraud. 
+
+In addition, I would have liked to create features based on time between transactions of a user. If two transactions are two close together, it is unlikely that a user made both of these transactions. This paired with location data could indicate whether a series of transactions was even possible to be made by the same user. Lastly, I would create a feature indicating whether a user had ever transacted with the destination user before. It might be an indication of fraud if someone is transacting with another user or store that is outside of their normal behavior. Through these features, the classifiers would have had information about how far the transaction is straying from past behaviors of that user in addition to how different the transaction is to other legitimate transactions.
+
+Based on the results from this experiment, and extension of my fraud detection system could involve combining a rule based system with a more sensitive classifier. Since decision trees were the best suited for this problem, I would have liked to try building out a rule based system based on some of the rules discussed in previous literature. In this architecture, all transactions would filter through the rule based system first, potentially eliminating transactions that are certain to be legitimate and certain to be fraud. This would leave the uncertain cases, which a classifier would then train. This architecture is similar to Panigrahi et al, which combines the results from the different elements using Dempster-Shafer Theory \cite{Panigrahi2009}.
+
+With more realistic credit card data, I also could have used some of the network analysis approaches to feature engineering discussed in the related work. There has been much research into feature engineering using deep feature analysis or even social network analysis. These approaches mainly look at patterns in the behavior of users in relation to their own past transactions and other users. Social network analysis looks at how a user is acting in comparison to other members in their community or immediate circle of acquaintances \cite{Baesens}. Future work on this topic would involve implementing some of these systems, and incorporating them into the experiments ran in this thesis.   
+
+
 
 
 %\appendix
