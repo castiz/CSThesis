@@ -6,6 +6,10 @@ Database file #1: thesis.bib
 Warning--to sort, need author or key in USA
 Warning--to sort, need author or key in paymentMethods
 Warning--to sort, need author or key in legaldict
+Warning--to sort, need author or key in Retail
+Warning--to sort, need author or key in 41st
+Warning--to sort, need author or key in FICO
+Warning--to sort, need author or key in FDIC
 Warning--empty publisher in Baesens
 Warning--empty year in Baesens
 Warning--empty institution in Chan
@@ -17,45 +21,45 @@ Warning--empty year in Tian
 Warning--empty booktitle in Wang2004
 Warning--empty institution in Wedge
 Warning--empty year in Wedge
-You've used 27 entries,
+You've used 31 entries,
             2118 wiz_defined-function locations,
-            642 strings with 8048 characters,
-and the built_in function-call counts, 7545 in all, are:
-= -- 705
-> -- 376
+            653 strings with 8360 characters,
+and the built_in function-call counts, 8137 in all, are:
+= -- 753
+> -- 380
 < -- 2
-+ -- 151
++ -- 155
 - -- 124
-* -- 504
-:= -- 1256
-add.period$ -- 68
-call.type$ -- 27
-change.case$ -- 147
+* -- 524
+:= -- 1312
+add.period$ -- 72
+call.type$ -- 31
+change.case$ -- 159
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 262
-empty$ -- 617
+cite$ -- 49
+duplicate$ -- 290
+empty$ -- 709
 format.name$ -- 124
-if$ -- 1549
+if$ -- 1697
 int.to.chr$ -- 0
-int.to.str$ -- 27
+int.to.str$ -- 31
 missing$ -- 13
-newline$ -- 123
+newline$ -- 135
 num.names$ -- 48
-pop$ -- 191
+pop$ -- 223
 preamble$ -- 1
-purify$ -- 116
+purify$ -- 124
 quote$ -- 0
-skip$ -- 223
+skip$ -- 263
 stack$ -- 0
-substring$ -- 353
-swap$ -- 35
+substring$ -- 373
+swap$ -- 39
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 106
-warning$ -- 14
+type$ -- 122
+warning$ -- 18
 while$ -- 70
-width$ -- 29
-write$ -- 241
-(There were 14 warnings)
+width$ -- 33
+write$ -- 261
+(There were 18 warnings)

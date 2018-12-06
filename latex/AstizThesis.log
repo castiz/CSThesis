@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  3 DEC 2018 20:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  6 DEC 2018 01:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -505,7 +505,35 @@ Package ctable Warning:  Transparency disabled: incompatible with tikz package
 \@CToldrule=\dimen197
 \CT@t=\box43
 \@CTcurftwidth=\dimen198
-) (./AstizThesis.aux
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count122
+\lst@gtempboxa=\box44
+\lst@token=\toks33
+\lst@length=\count123
+\lst@currlwidth=\dimen199
+\lst@column=\count124
+\lst@pos=\count125
+\lst@lostspace=\dimen256
+\lst@width=\dimen257
+\lst@newlines=\count126
+\lst@lineno=\count127
+\lst@maxwidth=\dimen258
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count128
+\lst@skipnumbers=\count129
+\lst@framebox=\box45
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(./AstizThesis.aux
 
 LaTeX Warning: Label `tab1' multiply defined.
 
@@ -518,36 +546,36 @@ LaTeX Warning: Label `tab1' multiply defined.
 )
 \openout1 = `AstizThesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 41.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count122
-\scratchdimen=\dimen199
-\scratchbox=\box44
-\nofMPsegments=\count123
-\nofMParguments=\count124
-\everyMPshowfont=\toks33
-\MPscratchCnt=\count125
-\MPscratchDim=\dimen256
-\MPnumerator=\count126
-\makeMPintoPDFobject=\count127
-\everyMPtoPDFconversion=\toks34
+\scratchcounter=\count130
+\scratchdimen=\dimen259
+\scratchbox=\box46
+\nofMPsegments=\count131
+\nofMParguments=\count132
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count133
+\MPscratchDim=\dimen260
+\MPnumerator=\count134
+\makeMPintoPDFobject=\count135
+\everyMPtoPDFconversion=\toks35
 ) (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -594,13 +622,15 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+\c@lstlisting=\count136
+
 Title page
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Abstract
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
 [1
 
 ] [2
@@ -640,7 +670,7 @@ Chapter 1.
 <paymentMethods.png, id=26, 716.6775pt x 509.905pt>
 File: paymentMethods.png Graphic file (type png)
  <use paymentMethods.png>
-Package pdftex.def Info: paymentMethods.png used on input line 51.
+Package pdftex.def Info: paymentMethods.png used on input line 74.
 (pdftex.def)             Requested size: 358.33788pt x 254.95187pt.
 
 [1
@@ -649,97 +679,107 @@ Package pdftex.def Info: paymentMethods.png used on input line 51.
 ] <USA.png, id=32, 701.62125pt x 444.66125pt>
 File: USA.png Graphic file (type png)
  <use USA.png>
-Package pdftex.def Info: USA.png used on input line 61.
+Package pdftex.def Info: USA.png used on input line 84.
 (pdftex.def)             Requested size: 350.80975pt x 222.33008pt.
  [2 <./paymentMethods.png>] [3 <./USA.png>]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 76.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 101.
 [4
 
 ] [5] <chan_stolfo.png, id=47, 748.7975pt x 438.63875pt>
 File: chan_stolfo.png Graphic file (type png)
 
 <use chan_stolfo.png>
-Package pdftex.def Info: chan_stolfo.png used on input line 89.
+Package pdftex.def Info: chan_stolfo.png used on input line 111.
 (pdftex.def)             Requested size: 374.39783pt x 219.31883pt.
- [6 <./chan_stolfo.png>]
-<parenclitic.jpg, id=52, 604.2575pt x 441.65pt>
+ [6 <./chan_stolfo.png>] [7]
+<parenclitic.jpg, id=56, 604.2575pt x 441.65pt>
 File: parenclitic.jpg Graphic file (type jpg)
  <use parenclitic.jpg>
-Package pdftex.def Info: parenclitic.jpg used on input line 110.
-(pdftex.def)             Requested size: 302.128pt x 220.82445pt.
- [7]
-<parenclitic2.png, id=57, 495.8525pt x 383.4325pt>
+Package pdftex.def Info: parenclitic.jpg used on input line 136.
+(pdftex.def)             Requested size: 362.5573pt x 264.99203pt.
+ [8 <./parenclitic.jpg>] <parenclitic2.png, id=60, 495.8525pt x 383.4325pt>
 File: parenclitic2.png Graphic file (type png)
- <use parenclitic2.png>
-Package pdftex.def Info: parenclitic2.png used on input line 119.
-(pdftex.def)             Requested size: 247.92564pt x 191.71577pt.
 
-[8 <./parenclitic.jpg>] [9 <./parenclitic2.png>] [10] [11] [12] [13]
+<use parenclitic2.png>
+Package pdftex.def Info: parenclitic2.png used on input line 146.
+(pdftex.def)             Requested size: 297.5138pt x 230.06126pt.
+ [9 <./parenclitic2.png>] [10] [11] [12] [13]
 <bipartie.png, id=78, 610.28pt x 181.67876pt>
 File: bipartie.png Graphic file (type png)
  <use bipartie.png>
-Package pdftex.def Info: bipartie.png used on input line 156.
+Package pdftex.def Info: bipartie.png used on input line 187.
 (pdftex.def)             Requested size: 457.70888pt x 136.25871pt.
- [14 <./bipartie.png>] [15] [16] <gametheory.png, id=89, 319.1925pt x 223.83624
-pt>
+ [14 <./bipartie.png>] [15] [16] <gametheory.png, id=89, 554.07pt x 311.1625pt>
 File: gametheory.png Graphic file (type png)
 
 <use gametheory.png>
-Package pdftex.def Info: gametheory.png used on input line 184.
-(pdftex.def)             Requested size: 319.19171pt x 223.8357pt.
+Package pdftex.def Info: gametheory.png used on input line 215.
+(pdftex.def)             Requested size: 387.84636pt x 217.81226pt.
  [17 <./gametheory.png>] [18]
 <GameTheory2.png, id=104, 686.565pt x 529.98pt>
 File: GameTheory2.png Graphic file (type png)
  <use GameTheory2.png>
-Package pdftex.def Info: GameTheory2.png used on input line 210.
+Package pdftex.def Info: GameTheory2.png used on input line 237.
 (pdftex.def)             Requested size: 686.56332pt x 529.97868pt.
  [19 <./GameTheory2.png>] [20] [21]
 Chapter 3.
 [22
 
-] [23] [24] [25] [26] [27] [28] [29]
+] [23] [24] [25] [26] [27] [28] [29] [30]
 Chapter 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <24.88> on input line 318.
+(Font)              <24.88> on input line 352.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 318.
+(Font)              <20.74> on input line 352.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 318.
-[30
+(Font)              <17.28> on input line 352.
+[31
 
-] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
-<pca2.png, id=184, 722.7pt x 489.9906pt>
+] [32] [33]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 440.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 440.
+ [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
+<pca2.png, id=188, 722.7pt x 489.9906pt>
 File: pca2.png Graphic file (type png)
  <use pca2.png>
-Package pdftex.def Info: pca2.png used on input line 737.
+Package pdftex.def Info: pca2.png used on input line 768.
 (pdftex.def)             Requested size: 433.62334pt x 293.99661pt.
 
-Overfull \hbox (14.45712pt too wide) in paragraph at lines 737--738
+Overfull \hbox (14.45712pt too wide) in paragraph at lines 768--769
  [][] 
  []
 
-[43 <./pca2.png>] <tpr.png, id=190, 578.16pt x 361.35pt>
+[44 <./pca2.png>] <tpr.png, id=194, 578.16pt x 361.35pt>
 File: tpr.png Graphic file (type png)
  <use tpr.png>
-Package pdftex.def Info: tpr.png used on input line 749.
+Package pdftex.def Info: tpr.png used on input line 780.
 (pdftex.def)             Requested size: 346.89867pt x 216.81168pt.
 
-<fpr.png, id=191, 578.16pt x 361.35pt>
+<fpr.png, id=195, 578.16pt x 361.35pt>
 File: fpr.png Graphic file (type png)
  <use fpr.png>
-Package pdftex.def Info: fpr.png used on input line 755.
+Package pdftex.def Info: fpr.png used on input line 786.
 (pdftex.def)             Requested size: 346.89867pt x 216.81168pt.
- [44] [45 <./tpr.png> <./fpr.png>] [46]
+ [45] [46 <./tpr.png> <./fpr.png>] [47]
 Chapter 5.
-[47
+[48
 
-] [48] [49] [50]
+] [49] [50] [51]
 Chapter 6.
-[51
+[52
 
-] [52] (./AstizThesis.bbl [53]
+] [53] (./AstizThesis.bbl [54]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 10.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ¢ in font ptmr7t!
@@ -757,7 +797,7 @@ Missing character: There is no “ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- [54
+ [55
 
 ]
 Missing character: There is no â in font ptmr7t!
@@ -769,19 +809,20 @@ Missing character: There is no ” in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- [55]) [56] (./AstizThesis.aux)
+ [56])
+[57] (./AstizThesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14264 strings out of 492995
- 293949 string characters out of 6132704
- 331453 words of memory out of 5000000
- 17514 multiletter control sequences out of 15000+600000
- 18745 words of font info for 45 fonts, out of 8000000 for 9000
+ 15535 strings out of 492995
+ 312814 string characters out of 6132704
+ 365177 words of memory out of 5000000
+ 18763 multiletter control sequences out of 15000+600000
+ 23500 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,16n,70p,1569b,953s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,16n,72p,1588b,953s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/tex
@@ -794,10 +835,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/f
 onts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on AstizThesis.pdf (62 pages, 978719 bytes).
+Output written on AstizThesis.pdf (63 pages, 1026814 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
+ 278 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
