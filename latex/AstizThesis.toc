@@ -18,13 +18,13 @@
 \contentsline {subsubsection}{Limitations}{35}
 \contentsline {subsection}{\numberline {4.2.3}Methods}{36}
 \contentsline {subsection}{\numberline {4.2.4}Results}{41}
-\contentsline {subsection}{\numberline {4.2.5}Discussion}{41}
-\contentsline {chapter}{\numberline {5}Further Applications}{48}
-\contentsline {section}{\numberline {5.1}Anomaly-Based Intrusion Detection}{48}
-\contentsline {subsection}{\numberline {5.1.1}Biometric Anomaly Detection}{49}
-\contentsline {section}{\numberline {5.2}Hardware Health Monitoring}{49}
-\contentsline {section}{\numberline {5.3}Bioinformatics}{50}
-\contentsline {section}{\numberline {5.4}Cloud Computing}{50}
-\contentsline {chapter}{\numberline {6}Conclusions}{52}
-\contentsline {section}{\numberline {6.1}Future Work}{53}
-\contentsline {chapter}{Bibliography}{55}
+\contentsline {subsection}{\numberline {4.2.5}Discussion}{46}
+\contentsline {chapter}{\numberline {5}Further Applications}{49}
+\contentsline {section}{\numberline {5.1}Anomaly-Based Intrusion Detection}{49}
+\contentsline {subsection}{\numberline {5.1.1}Biometric Anomaly Detection}{50}
+\contentsline {section}{\numberline {5.2}Hardware Health Monitoring}{50}
+\contentsline {section}{\numberline {5.3}Bioinformatics}{51}
+\contentsline {section}{\numberline {5.4}Cloud Computing}{51}
+\contentsline {chapter}{\numberline {6}Conclusions}{53}
+\contentsline {section}{\numberline {6.1}Future Work}{54}
+\contentsline {chapter}{Bibliography}{56}

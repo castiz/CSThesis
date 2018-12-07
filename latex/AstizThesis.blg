@@ -5,6 +5,7 @@ The style file: plain.bst
 Database file #1: thesis.bib
 Warning--to sort, need author or key in USA
 Warning--to sort, need author or key in paymentMethods
+Warning--to sort, need author or key in inseparable
 Warning--to sort, need author or key in legaldict
 Warning--to sort, need author or key in Retail
 Warning--to sort, need author or key in 41st
@@ -21,45 +22,45 @@ Warning--empty year in Tian
 Warning--empty booktitle in Wang2004
 Warning--empty institution in Wedge
 Warning--empty year in Wedge
-You've used 31 entries,
+You've used 32 entries,
             2118 wiz_defined-function locations,
-            653 strings with 8360 characters,
-and the built_in function-call counts, 8137 in all, are:
-= -- 753
-> -- 380
+            655 strings with 8449 characters,
+and the built_in function-call counts, 8285 in all, are:
+= -- 765
+> -- 381
 < -- 2
-+ -- 155
++ -- 156
 - -- 124
-* -- 524
-:= -- 1312
-add.period$ -- 72
-call.type$ -- 31
-change.case$ -- 159
+* -- 529
+:= -- 1326
+add.period$ -- 73
+call.type$ -- 32
+change.case$ -- 162
 chr.to.int$ -- 0
-cite$ -- 49
-duplicate$ -- 290
-empty$ -- 709
+cite$ -- 51
+duplicate$ -- 297
+empty$ -- 732
 format.name$ -- 124
-if$ -- 1697
+if$ -- 1734
 int.to.chr$ -- 0
-int.to.str$ -- 31
+int.to.str$ -- 32
 missing$ -- 13
-newline$ -- 135
+newline$ -- 138
 num.names$ -- 48
-pop$ -- 223
+pop$ -- 231
 preamble$ -- 1
-purify$ -- 124
+purify$ -- 126
 quote$ -- 0
-skip$ -- 263
+skip$ -- 273
 stack$ -- 0
-substring$ -- 373
-swap$ -- 39
+substring$ -- 378
+swap$ -- 40
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 122
-warning$ -- 18
+type$ -- 126
+warning$ -- 19
 while$ -- 70
-width$ -- 33
-write$ -- 261
-(There were 18 warnings)
+width$ -- 34
+write$ -- 266
+(There were 19 warnings)

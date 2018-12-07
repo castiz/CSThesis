@@ -582,7 +582,7 @@ Once my data is cleaned, I randomly split the data into training sets and test s
 For each model, I used a random sample of 20\% of my data and altered the parameters and hyperparameters. Examples of this include changing the learning rate for the neural network model or choosing the max depth of the decision tree classifier. One of the main parameters I was interested in was the learner formula; which is the actual equation for which weights are calculated. For example, I found neural networks to be most accurate with the stochastic gradient descent solver and a relu activation function. With logistic regression, I found the LBFGS solver to be much better than SAG or the other solver options. This sort of guess and check method may seem inefficient, but is one of the only ways to tune many machine learning algorithms. I focus on data manipulation as my computationally expensive tests. 
 
 
-Testing the neural network model is slightly more complicated, as you can have drastically different results based on the architecture. Neural networks are constructed of an input layer, output layer, and as many hidden layers in between as desired. Both the number of hidden layers as well as the number of nodes within each of the layers can be specified, growing or shrinking the model in complexity. In addition to the architecture, I will also be testing the epoch or max iterations parameter. An epoch is one forward propagation of data and one backward propagation. Each time data cycles through the network, the weights adjust and supposedly become more accurate. In addition to the other experiments, I will analyze the best amount of epochs for the fraud classification problem.
+Testing the neural network model is slightly more complicated, as you can have drastically different results based on the architecture. Neural networks are constructed of an input layer, output layer, and as many hidden layers in between as desired. Both the number of hidden layers as well as the number of nodes within each of the layers can be specified, growing or shrinking the model in complexity. Other than the architecture, I will also be testing the epoch or max iterations parameter. An epoch is one forward propagation of data and one backward propagation. Each time data cycles through the network, the weights adjust and supposedly become more accurate. In addition to the other experiments, I will analyze the best amount of epochs for the fraud classification problem. The results shown in the results section will be the metrics from the best architecture, as there were many trials with similar results.
 
 %One of the elements of data manipulation I have tested is incorporating engineered features. The data I have is synthetic mobile payments as discussed in the data section. While this is a useful dataset for this project, it is somewhat limited in comparison to the information a credit card company would have on a normal brick and mortar transaction. The main limitation I attempt to expand upon is the lack of user profiling. There are over 6 million transactions in this dataset, with some of the same users repeating transactions. Each transaction includes information about which parties a transaction is between, the time as represented in hours and the amount. 
 
@@ -675,16 +675,14 @@ SVM	        &	0.002 &	0.0002 &	1	& 0.0004\\
 Gaussian	        &	0.738 &	0.0005 &	0.617 &	0.001	\\
 
 
-
-
-
-
 \hline\hline
 \end{tabular}
 }
 \end{table} 
 
+The results shown in Table~\ref{sec:non_norm_results} show that decision trees had the highest F1 score and accuracy in most trials. However, unlike the hypothesis, the decision tree with the original dataset fraudulent proportion performed best. It seems that when the training data contained more fraud proportionally, the decision tree, as well as the other classifiers became very skewed towards predicting fraud. While the altered training set did allow other classifiers, like the neural network, to be more sensitive to fraud, it overall increased the false positive rates. 
 
+In contrast, SVM's performed poorly, averaging less than a 1\% accuracy. The low accuracy, combined with the high recall, implies the SVM only predicted fraud for all transactions. This may be because of the difference between the training dataset and the test dataset. The SVM may be able to find a division between fraudulent and non-fraudulent transactions during training, but this may not apply well to the whole dataset. 
 
 
 \begin{table}[htbp]\centering
@@ -748,33 +746,41 @@ Gaussian	        &	0.167		&		0.120 & 0.500	&	0.192	\\
 \end{table} 
 
 
-
-Decision trees had the highest F1 score and accuracy in most trials. In contrast, SVM's performed poorly. As a caveat, the neural network results are the best of the results found in experimenting with different architectures. In general, the neural networks biased towards the same results regardless of architecture or training epochs. In Table~\ref{sec:norm_results}, I normalized the data, then performed the experiments. This is an approach used to eliminate bias due to magnitude of a feature and to put all the features on similar scales. In these experiments, however, normalizing the data lead to lower results for almost every model, as well as heavy biases in the system. The only model to improve was the SVM's, which became less biased towards predicting only fraud.
+Table~\ref{sec:norm_results} shows the results of experiments performed on normalized data. During the testing phase, it seemed that normalizing the data made improvements to most model's behaviors. However, in these experiments, normalizing the data lead to lower results for almost every model, as well as heavy biases in the system. These biases can be seen in the very low precision, where the classification model is either predicting no fraudulent transactions or all fraudulent transactions. Based on the precision and recall, it seemed that normalizing the data led the models to either skew towards predicting only fraudulent transactions or skew towards predicting all fraudulent transactions. The only model to improve was the SVM's, which became less biased towards predicting only fraud.
 
 
 %- normalizing data actually got a slight increase in the accuracy by .01 across the board
 %- setting up an experiment that runs through models of different architectures for different amounts of epochs and will also try with different Fraud/nonfraud distributions
 %- will extend these experiments to my other test models
 
+Figure~\ref{fig:tpr} shows the true positive rates as the fraud data proportion increases in the non-normalized run. Each of the models had increases in true positive rate as the data proportion increased, though by different magnitudes. The most drastic increase was in the neural network, where the model biased towards predicting fraud. As seen in Figure~\ref{fig:fpr}, the false positive rates also tend to increase as the true positive rates increase and Table~\ref{tab:fpr} displays the exact figures. The only model that decreases in false positive rate with more fraudulent data examples is the SVM. 
+
+While most of these false positive rates are increasing only slightly in magnitude, that small increase multiplied by 6 million transactions has a larger impact. For the increase of 0.06 in false positive rate from the logistic regression model, there would be an additional 360,000 false positives. To return to related work, if a company has low overhead, increased false positives are not as expensive as if a company has very high overhead \cite{Chan}. Therefore, the increased sensitivity to fraud is worthwhile. In these results, the decision tree has both high true positive rates and low false positive rates, reinforcing the success of the model.   
+
+% may want to rerun with the original dataset to look at the false positive rate from that
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Results: Non-normalized Data False Positive Rates by Model  \label{tab1}}
+\label{tab:fpr}
+%\vspace{-18 pt}
+% %%%%%%%%%
+\scalebox{1} {
+\begin{tabular}{l@{\hskip 0.1in} c c c c c} \addlinespace\hline\hline
+\addlinespace
+Data&Logistic Regression& Gaussian&SVM& Neural Network &Decision Tree\\
+\hline
+
+\addlinespace
+\addlinespace
+50/50	& 0.090 &	0.509	&0.995 &1&	0.011\\60/33	& 0.057	& 0.491	& 0.998	& 0	& 0.007\\75/25	& 0.044	& 0.495	& 0.998	& 0	& 0.005\\80/20	& 0.029	& 0.262	& 0.998	& 0	& 0.004\\
 
 
-\subsection{Discussion}
+\hline\hline
+\end{tabular}
+}
+\end{table} 
 
-It is possible that the data divisibility impacted the results of the paper. Classifiers perform best when the data is easily dividable between the data classes. When the data between classes are mixed, then it is more difficult to fit a classifier that is accurate while also not overfitting to the data. If the model overfits, then new examples are likely to be classified incorrectly. 
-
-In Figure~\ref{fig:data1}, two principal components of the data is shown, with fraudulent transactions depicted in red. This figure shows that the classifiers may have had difficulty identifying fraud because of the lack of separability in this data. There seems to be a grouping of fraudulent transactions on the left section of this graph, but these are mixed in with legitimate transactions. This means that there is not a clear line a classifier could draw to divide fraudulent and legitimate transactions.
-
-\begin{figure} \centering
-  \includegraphics[scale=.6]{pca2.png}
-  \caption{Principal Components Analysis of Data}
-  \label{fig:data1}
-\end{figure}
-
-Based on the results in Table~\ref{sec:non_norm_results}, decision trees perform the best in almost all the tests. Using the non-normalized data, training with a 1/3 proportion of fraudulent data has created the best results, with a 50/50 data proportion being a close second. In many of the interviews discussed in Chapter 3, practitioners discussed rule based systems as popular fraud detection systems. Rule based systems are very similar to decision trees, and can be implemented as decision trees. These results are consistent with interviews, and demonstrate that rule based systems are more effective than I originally hypothesized. 
-
-While most models performed satisfactorily in these trials, the SVM's consistently performed below the other models in all trials. I hypothesize this may be because of the poor separability of the data. SVM's attempt to divide the data with the largest margin of error possible. If there is no clear division, the SVM cannot make an accurate division. In addition, when changing the data proportions, the SVM may have found a division between fraud and legitimate transactions that was present in the training data, but not in the testing data. This is further evidenced by the high recall of most of the SVM runs, showing that there were no false negatives for any of the SVM runs with training data manipulation. SVM's in all of these cases were predicting all fraudulent, biasing heavily towards the minority class. When the data was normalized, the SVM's became less skewed, but most runs still biased towards predicting fraud.
-
-Figure~\ref{fig:tpr} shows the true positive rates as the fraud data proportion increases in the non-normalized run. Each of the models had increases in true positive rate as the data proportion increased, though by different magnitudes. The most drastic increase was in the neural network, where the model biased towards predicting fraud. As seen in Figure~\ref{fig:fpr}, the false positive rates also tend to increase as the true positive rates increase. To return to related work, if a company has low overhead, increased false positives are not as expensive as if a company has very high overhead \cite{Chan}. Therefore, the increased sensitivity to fraud is worthwhile. In these results, the decision tree has both high true positive rates and low false positive rates, reinforcing the success of the model.   
 
 \begin{figure} \centering
   \includegraphics[scale=.6]{tpr.png}
@@ -787,6 +793,31 @@ Figure~\ref{fig:tpr} shows the true positive rates as the fraud data proportion 
   \caption{False Positive Rates by Data Proportions}
   \label{fig:fpr}
 \end{figure}
+
+
+
+
+\subsection{Discussion}
+
+It is possible that the data divisibility impacted the results of the paper. Classifiers perform best when the data is easily dividable between the data classes. When the data between classes are overlapping, then it is more difficult to fit a classifier that is accurate while also not overfitting to the data. If data is not separable, a classifier may have difficulty distinguishing classes. Based on where the classifier draws the line between classes, it will likely predict many examples incorrectly because of the lack of pattern in the data. Figure~\ref{fig:inseparable} is a visualization of data that is not easily separable. Here, you can see that there is no line that can be drawn to divide the green dots from the red dots. 
+
+\begin{figure} \centering
+  \includegraphics[scale=.6]{inseparable.png}
+  \caption{Inseparable Data Example \cite{inseparable}}
+  \label{fig:inseparable}
+\end{figure}
+
+In Figure~\ref{fig:data1}, two principal components of the data is shown, with fraudulent transactions depicted in red. This figure shows that the classifiers may have had difficulty identifying fraud because of the lack of separability in this data. There seems to be a grouping of fraudulent transactions on the left section of this graph, but these are mixed in with legitimate transactions. This means that there is not a clear line a classifier could draw to divide fraudulent and legitimate transactions.
+
+\begin{figure} \centering
+  \includegraphics[scale=.6]{pca2.png}
+  \caption{Principal Components Analysis of Data}
+  \label{fig:data1}
+\end{figure}
+
+Based on the results in Table~\ref{sec:non_norm_results}, decision trees perform the best in almost all the tests. Using the non-normalized data, training with a 1/3 proportion of fraudulent data has created the best results, with a 50/50 data proportion being a close second. In many of the interviews discussed in Chapter 3, practitioners discussed rule based systems as popular fraud detection systems. Rule based systems are very similar to decision trees, and can be implemented as decision trees. These results are consistent with interviews, and demonstrate that rule based systems are more effective than I originally hypothesized. 
+
+While most models performed satisfactorily in these trials, the SVM's consistently performed below the other models in all trials. I hypothesize this may be because of the poor separability of the data. SVM's attempt to divide the data with the largest margin of error possible. If there is no clear division, the SVM cannot make an accurate division. In addition, when changing the data proportions, the SVM may have found a division between fraud and legitimate transactions that was present in the training data, but not in the testing data. This is further evidenced by the high recall of most of the SVM runs, showing that there were no false negatives for any of the SVM runs with training data manipulation. SVM's in all of these cases were predicting all fraudulent, biasing heavily towards the minority class. When the data was normalized, the SVM's became less skewed, but most runs still biased towards predicting fraud.
 
 Through these experiments, I have found decision trees to be the most successful in classifying fraudulent transactions in this setting. My initial hypothesis was incorrect; neural networks did not perform well in this setting, and easily biased towards predicting one class or another, regardless of the architecture. A lesson from this is to always choose a classifier based on the problem at hand, not by the supposed complexity of a model. 
 
