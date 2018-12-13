@@ -1,0 +1,2 @@
+model	fraud_prop	normalized	time	accuracy	tp	tn	fp	fn
+logReg	0	0	34.5	0.9982133152024433	488	906834	894	730
