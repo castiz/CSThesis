@@ -2,27 +2,42 @@
 
 \bibitem{41st}
 {Experian and 41st Parameter: Preventing fraud and enabling sales}.
+\newblock Available at
+  http://www.experian.com/decision-analytics/41st-parameter.html.
 
 \bibitem{FDIC}
 {FDIC Law, Regulations, Related Acts - Consumer Financial Protection Bureau}.
+\newblock Available at
+  https://www.fdic.gov/regulations/laws/rules/6500-300.html.
 
 \bibitem{FICO}
 {FICO{\textregistered} Application Fraud Manager | FICO{\textregistered}}.
+\newblock Available at
+  https://www.fico.com/en/products/fico-application-fraud-manager.
 
 \bibitem{legaldict}
 {Fraud - Definition, Types, Examples and Processes}.
+\newblock Available at https://legaldictionary.net/fraud/.
 
 \bibitem{Retail}
 {Retail Decisions, Inc.: Private Company Information - Bloomberg}.
+\newblock Available at
+  https://www.bloomberg.com/research/stocks/private/snapshot.asp?privcapId=4527922.
 
 \bibitem{inseparable}
 {Vision, Learning and Robotics: Feature Normalization for Learning Classifier}.
+\newblock Available at
+  http://surenkum.blogspot.com/2013/03/feature-normalization-for-learning.html.
 
 \bibitem{paymentMethods}
 {• Most popular payment methods in the U.S. 2017 | Statistic}.
+\newblock Available at
+  https://www.statista.com/statistics/568523/preferred-payment-methods-usa/.
 
 \bibitem{USA}
 {• U.S. payment card fraud losses by type 2018 | Statistic}.
+\newblock Available at
+  https://www.statista.com/statistics/419628/payment-card-fraud-losses-usa-by-type/.
 
 \bibitem{Ahmed2005}
 Ahmed Awad~E. Ahmed and Issa Traore.
@@ -38,10 +53,14 @@ Bart Baesens, Véronique {Van Vlasselaer}, Wouter Verbeke, and V�eronique
 \bibitem{Boccaletti}
 Stefano Boccaletti.
 \newblock {Complex Network Theory: introduction and applications}.
+\newblock Available at
+  https://www.slideshare.net/CIGTR/complex-network-theory-in.
 
 \bibitem{Brownlee}
 Jason Brownlee.
 \newblock {Support Vector Machines for Machine Learning}.
+\newblock Available at
+  https://machinelearningmastery.com/support-vector-machines-for-machine-learning/.
 
 \bibitem{Chan}
 Philip~K Chan and Salvatore~J Stolfo.
@@ -64,6 +83,8 @@ Tom Fawcett and Foster Provost.
 \bibitem{Gupta}
 Prashant Gupta.
 \newblock {Decision Trees in Machine Learning – Towards Data Science}.
+\newblock Available at
+  https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052.
 
 \bibitem{Panigrahi2009}
 Suvasini Panigrahi, Amlan Kundu, Shamik Sural, and A.K. Majumdar.
@@ -74,6 +95,7 @@ Suvasini Panigrahi, Amlan Kundu, Shamik Sural, and A.K. Majumdar.
 \bibitem{paysim}
 Paysim.
 \newblock {Synthetic Financial Datasets For Fraud Detection | Kaggle}.
+\newblock Available at https://www.kaggle.com/ntnu-testimon/paysim1.
 
 \bibitem{Perols2011}
 Johan Perols.
@@ -106,10 +128,13 @@ Salvatore~J Stolfo, David~W Fan, Wenke Lee, Andreas~L Prodromidis, and Philip~K
 \bibitem{Suryansh}
 S.~Suryansh.
 \newblock {Neural Networks: All YOU Need to Know – Towards Data Science}.
+\newblock Available at https://towardsdatascience.com/nns-aynk-c34efe37f15a.
 
 \bibitem{Swaminathan}
 Saishruthi Swaminathan.
 \newblock {Logistic Regression — Detailed Overview – Towards Data Science}.
+\newblock Available at
+  https://towardsdatascience.com/logistic-regression-detailed-overview-46c4da4303bc.
 
 \bibitem{Tian}
 Tian Tian, Jun Zhu, Fen Xia, Xin Zhuang, and Tong Zhang.
@@ -131,6 +156,8 @@ Ke~Wang and Salvatore~J. Stolfo.
 Mac Wang.
 \newblock {How to protect your business from online payments fraud - CSO | The
   Resource for Data Security Executives}, 2018.
+\newblock Available at
+  https://www.cso.com.au/article/646962/how-protect-your-business-from-online-payments-fraud/.
 
 \bibitem{Wedge}
 Roy Wedge, James~Max Kanter, Kalyan Veeramachaneni, Santiago~Moral Rubio,

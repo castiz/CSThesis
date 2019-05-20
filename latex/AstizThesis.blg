@@ -5,12 +5,12 @@ The style file: plain.bst
 Database file #1: thesis.bib
 Warning--to sort, need author or key in USA
 Warning--to sort, need author or key in paymentMethods
-Warning--to sort, need author or key in inseparable
 Warning--to sort, need author or key in legaldict
 Warning--to sort, need author or key in Retail
 Warning--to sort, need author or key in 41st
 Warning--to sort, need author or key in FICO
 Warning--to sort, need author or key in FDIC
+Warning--to sort, need author or key in inseparable
 Warning--empty publisher in Baesens
 Warning--empty year in Baesens
 Warning--empty institution in Chan
@@ -24,16 +24,16 @@ Warning--empty institution in Wedge
 Warning--empty year in Wedge
 You've used 32 entries,
             2118 wiz_defined-function locations,
-            655 strings with 8449 characters,
-and the built_in function-call counts, 8285 in all, are:
-= -- 765
+            670 strings with 9669 characters,
+and the built_in function-call counts, 8420 in all, are:
+= -- 795
 > -- 381
 < -- 2
 + -- 156
 - -- 124
 * -- 529
-:= -- 1326
-add.period$ -- 73
+:= -- 1356
+add.period$ -- 88
 call.type$ -- 32
 change.case$ -- 162
 chr.to.int$ -- 0
@@ -41,17 +41,17 @@ cite$ -- 51
 duplicate$ -- 297
 empty$ -- 732
 format.name$ -- 124
-if$ -- 1734
+if$ -- 1764
 int.to.chr$ -- 0
 int.to.str$ -- 32
 missing$ -- 13
-newline$ -- 138
+newline$ -- 153
 num.names$ -- 48
-pop$ -- 231
+pop$ -- 273
 preamble$ -- 1
 purify$ -- 126
 quote$ -- 0
-skip$ -- 273
+skip$ -- 216
 stack$ -- 0
 substring$ -- 378
 swap$ -- 40
@@ -62,5 +62,5 @@ type$ -- 126
 warning$ -- 19
 while$ -- 70
 width$ -- 34
-write$ -- 266
+write$ -- 296
 (There were 19 warnings)

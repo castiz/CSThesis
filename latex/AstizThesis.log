@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  6 DEC 2018 23:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  19 MAY 2019 22:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -690,126 +690,173 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 101.
 [4
 
-] [5] <chan_stolfo.png, id=47, 748.7975pt x 438.63875pt>
+] [5] <chan_stolfo.png, id=50, 748.7975pt x 438.63875pt>
 File: chan_stolfo.png Graphic file (type png)
 
 <use chan_stolfo.png>
-Package pdftex.def Info: chan_stolfo.png used on input line 111.
-(pdftex.def)             Requested size: 374.39783pt x 219.31883pt.
- [6 <./chan_stolfo.png>] [7]
-<parenclitic.jpg, id=56, 604.2575pt x 441.65pt>
+Package pdftex.def Info: chan_stolfo.png used on input line 125.
+(pdftex.def)             Requested size: 449.28197pt x 263.18527pt.
+
+Overfull \hbox (30.11575pt too wide) in paragraph at lines 125--126
+[][] 
+ []
+
+[6 <./chan_stolfo.png>] [7] <parenclitic.jpg, id=59, 604.2575pt x 441.65pt>
 File: parenclitic.jpg Graphic file (type jpg)
- <use parenclitic.jpg>
-Package pdftex.def Info: parenclitic.jpg used on input line 136.
-(pdftex.def)             Requested size: 362.5573pt x 264.99203pt.
- [8 <./parenclitic.jpg>] <parenclitic2.png, id=60, 495.8525pt x 383.4325pt>
-File: parenclitic2.png Graphic file (type png)
 
-<use parenclitic2.png>
-Package pdftex.def Info: parenclitic2.png used on input line 146.
-(pdftex.def)             Requested size: 297.5138pt x 230.06126pt.
- [9 <./parenclitic2.png>] [10] [11] [12] [13]
-<bipartie.png, id=78, 610.28pt x 181.67876pt>
-File: bipartie.png Graphic file (type png)
- <use bipartie.png>
-Package pdftex.def Info: bipartie.png used on input line 187.
-(pdftex.def)             Requested size: 457.70888pt x 136.25871pt.
- [14 <./bipartie.png>] [15] [16] <gametheory.png, id=89, 554.07pt x 311.1625pt>
-File: gametheory.png Graphic file (type png)
+<use parenclitic.jpg>
+Package pdftex.def Info: parenclitic.jpg used on input line 151.
+(pdftex.def)             Requested size: 422.97737pt x 309.15288pt.
 
-<use gametheory.png>
-Package pdftex.def Info: gametheory.png used on input line 215.
-(pdftex.def)             Requested size: 387.84636pt x 217.81226pt.
- [17 <./gametheory.png>] [18]
-<GameTheory2.png, id=104, 686.565pt x 529.98pt>
-File: GameTheory2.png Graphic file (type png)
- <use GameTheory2.png>
-Package pdftex.def Info: GameTheory2.png used on input line 237.
-(pdftex.def)             Requested size: 686.56332pt x 529.97868pt.
- [19 <./GameTheory2.png>] [20] [21]
-Chapter 3.
-[22
-
-] [23] [24] [25] [26] [27] [28] [29] [30]
-Chapter 4.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <24.88> on input line 352.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 352.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 352.
-[31
-
-] [32] [33]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 440.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 440.
- [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
-<tpr.png, id=188, 578.16pt x 361.35pt>
-File: tpr.png Graphic file (type png)
- <use tpr.png>
-Package pdftex.def Info: tpr.png used on input line 789.
-(pdftex.def)             Requested size: 346.89867pt x 216.81168pt.
-
-<fpr.png, id=189, 578.16pt x 361.35pt>
-File: fpr.png Graphic file (type png)
- <use fpr.png>
-Package pdftex.def Info: fpr.png used on input line 795.
-(pdftex.def)             Requested size: 346.89867pt x 216.81168pt.
- [44] [45 <./tpr.png> <./fpr.png>] <inseparable.png, id=199, 481.8pt x 377.41pt
->
-File: inseparable.png Graphic file (type png)
- <use inseparable.png>
-Package pdftex.def Info: inseparable.png used on input line 808.
-(pdftex.def)             Requested size: 289.08221pt x 226.44774pt.
-
-<pca2.png, id=200, 722.7pt x 489.9906pt>
-File: pca2.png Graphic file (type png)
- <use pca2.png>
-Package pdftex.def Info: pca2.png used on input line 816.
-(pdftex.def)             Requested size: 433.62334pt x 293.99661pt.
-
-Overfull \hbox (14.45712pt too wide) in paragraph at lines 816--817
+Overfull \hbox (3.81116pt too wide) in paragraph at lines 151--152
  [][] 
  []
 
-[46 <./inseparable.png>] [47 <./pca2.png>] [48]
+[8 <./parenclitic.jpg>] <parenclitic2.png, id=63, 495.8525pt x 383.4325pt>
+File: parenclitic2.png Graphic file (type png)
+
+<use parenclitic2.png>
+Package pdftex.def Info: parenclitic2.png used on input line 161.
+(pdftex.def)             Requested size: 347.09438pt x 268.40092pt.
+ [9 <./parenclitic2.png>] [10] [11] [12] [13]
+<bipartie.png, id=81, 610.28pt x 181.67876pt>
+File: bipartie.png Graphic file (type png)
+ <use bipartie.png>
+Package pdftex.def Info: bipartie.png used on input line 202.
+(pdftex.def)             Requested size: 457.70888pt x 136.25871pt.
+ [14] [15 <./bipartie.png>] [16] <gametheory.png, id=92, 554.07pt x 311.1625pt>
+File: gametheory.png Graphic file (type png)
+
+<use gametheory.png>
+Package pdftex.def Info: gametheory.png used on input line 231.
+(pdftex.def)             Requested size: 415.55148pt x 233.3713pt.
+ [17] [18 <./gametheory.png>]
+<GameTheory2.png, id=100, 686.565pt x 529.98pt>
+File: GameTheory2.png Graphic file (type png)
+ <use GameTheory2.png>
+Package pdftex.def Info: GameTheory2.png used on input line 253.
+(pdftex.def)             Requested size: 686.56332pt x 529.97868pt.
+ [19]
+[20 <./GameTheory2.png>] [21] [22]
+Chapter 3.
+[23
+
+] [24] [25] [26] [27] [28] [29] [30] [31]
+Chapter 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <24.88> on input line 376.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <20.74> on input line 376.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 376.
+[32
+
+] [33] [34]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 464.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 464.
+ [35] [36] [37] [38] [39] [40] [41] [42] [43] [44]
+<tpr.png, id=192, 578.16pt x 361.35pt>
+File: tpr.png Graphic file (type png)
+ <use tpr.png>
+Package pdftex.def Info: tpr.png used on input line 787.
+(pdftex.def)             Requested size: 404.70924pt x 252.94327pt.
+
+<fpr.png, id=193, 578.16pt x 361.35pt>
+File: fpr.png Graphic file (type png)
+ <use fpr.png>
+Package pdftex.def Info: fpr.png used on input line 793.
+(pdftex.def)             Requested size: 404.70924pt x 252.94327pt.
+ [45 <./tpr.png>]
+<inseparable.png, id=198, 400.49625pt x 273.02pt>
+File: inseparable.png Graphic file (type png)
+ <use inseparable.png>
+Package pdftex.def Info: inseparable.png used on input line 835.
+(pdftex.def)             Requested size: 280.34546pt x 191.11269pt.
+
+[46 <./fpr.png>] <pca2.png, id=203, 722.7pt x 489.9906pt>
+File: pca2.png Graphic file (type png)
+ <use pca2.png>
+Package pdftex.def Info: pca2.png used on input line 843.
+(pdftex.def)             Requested size: 469.74944pt x 318.49011pt.
+
+Overfull \hbox (50.58322pt too wide) in paragraph at lines 843--844
+ [][] 
+ []
+
+[47 <./inseparable.png>] [48 <./pca2.png>] [49]
 Chapter 5.
-[49
+[50
 
-] [50] [51] [52]
+] [51] [52] [53]
 Chapter 6.
-[53
+[54
 
-] [54] (./AstizThesis.bbl [55]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 10.
+] [55] (./AstizThesis.bbl [56]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 14.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
+[]\OT1/ptm/m/n/12 FICO[] Ap-pli-ca-tion Fraud Man-ager | FICO[].  Avail-able at
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--21
+[]\OT1/ptm/m/n/12 Fraud - Def-i-ni-tion, Types, Ex-am-ples and Pro-cesses.  Ava
+il-able at
+ []
+
+
+Overfull \hbox (23.5163pt too wide) in paragraph at lines 23--26
+\OT1/ptm/m/n/12 https://www.bloomberg.com/research/stocks/private/snapshot.asp?
+privcapId=4527922. 
+ []
+
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ¢ in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ¢ in font ptmr7t!
+
+Underfull \hbox (badness 4084) in paragraph at lines 38--41
+[] \OT1/ptm/m/n/12 U.S. pay-ment card fraud losses by type 2018 | Statis-tic.  
+Avail-
+ []
+
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Å in font ptmr7t!
 Missing character: There is no Ô in font ptmr7t!
 Missing character: There is no ø in font ptmr7t!
 Missing character: There is no Ω in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ì in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ì in font ptmr7t!
- [56
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
+\OT1/ptm/m/n/12 at https://machinelearningmastery.com/support-vector-machines-f
+or-machine-
+ []
+
+[57
 
 ]
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ì in font ptmr7t!
+
+Underfull \hbox (badness 1092) in paragraph at lines 84--88
+\OT1/ptm/m/n/12 Avail-able at https://towardsdatascience.com/decision-trees-in-
+machine-learning-
+ []
+
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ì in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ì in font ptmr7t!
@@ -819,20 +866,37 @@ Missing character: There is no î in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ì in font ptmr7t!
- [57])
-[58] (./AstizThesis.aux)
+[58]
+Underfull \hbox (badness 1762) in paragraph at lines 156--161
+[]\OT1/ptm/m/n/12 Mac Wang.  How to pro-tect your busi-ness from on-line pay-me
+nts fraud
+ []
+
+
+Underfull \hbox (badness 3199) in paragraph at lines 156--161
+\OT1/ptm/m/n/12 - CSO | The Re-source for Data Se-cu-rity Ex-ec-u-tives, 2018. 
+ Avail-
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 156--161
+\OT1/ptm/m/n/12 able at https://www.cso.com.au/article/646962/how-protect-your-
+business-from-
+ []
+
+) [59] (./AstizThesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15543 strings out of 492995
- 312947 string characters out of 6132704
- 367178 words of memory out of 5000000
- 18770 multiletter control sequences out of 15000+600000
+ 15546 strings out of 492995
+ 312982 string characters out of 6132704
+ 360178 words of memory out of 5000000
+ 18773 multiletter control sequences out of 15000+600000
  23500 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,16n,72p,1588b,953s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,16n,72p,1384b,953s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/tex
@@ -845,10 +909,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/f
 onts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on AstizThesis.pdf (64 pages, 1033602 bytes).
+Output written on AstizThesis.pdf (65 pages, 1034872 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 286 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
